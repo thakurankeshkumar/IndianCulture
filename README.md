@@ -10,6 +10,14 @@ https://bharatculture.vercel.app/
 
 This project serves a static frontend from an Express server. The UI includes smooth scrolling navigation, themed typography, and animated visual elements.
 
+## 🎯 Frontend Highlights
+
+- Clean and modular HTML structure for easy readability  
+- Responsive layout using CSS media queries  
+- Smooth scrolling navigation for better user experience  
+- Interactive UI elements powered by JavaScript  
+- Visually appealing design inspired by Indian culture  
+
 ## Tech Stack
 
 - HTML5
