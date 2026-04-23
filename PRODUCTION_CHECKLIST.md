@@ -250,7 +250,7 @@ vercel --prod
 
 ### Environment Variables Required
 ```
-MONGO_URI=mongodb+srv://ankesh62019:ankesh62019@bharatculture.n0mqgqm.mongodb.net/cultureheritage
+MONGO_URI=mongodb+srv://username:password@bharatculture.n0mqgqm.mongodb.net/cultureheritage
 ```
 
 ---

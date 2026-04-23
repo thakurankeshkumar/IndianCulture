@@ -61,7 +61,7 @@ app.get("/api/state/:statename", async (req, res) => {
     } catch (err) {
         const duration = Date.now() - startTime;
         console.error(`API Error: ${err.message} (${duration}ms)`);
-        return res.status(500).json({ error: "Failed to fetch state details" });
+        return res.status(500).json({ error: "Failed to fetch the details of states" });
     }
 });
 
@@ -70,8 +70,6 @@ app.use((req, res) => {
 });
 
 
-
-
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on PORT:${PORT}`);
 });
