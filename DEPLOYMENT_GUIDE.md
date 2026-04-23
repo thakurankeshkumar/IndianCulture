@@ -136,7 +136,7 @@ cd /path/to/FrontendBackendProject
 
 # Step 3: Set environment variable
 vercel env add MONGO_URI
-# Paste: mongodb+srv://ankesh62019:ankesh62019@bharatculture.n0mqgqm.mongodb.net/cultureheritage
+# Paste: mongodb+srv://<usernamw>:<password>@bharatculture.n0mqgqm.mongodb.net/cultureheritage
 
 # Step 4: Deploy
 vercel --prod
