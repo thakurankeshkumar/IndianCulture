@@ -66,10 +66,10 @@ app.get("/api/state/:statename", async (req, res) => {
 });
 
 app.use((req, res) => {
-    res.status(404).send("Page not found");
+    res.status(404).send("Page Not found");
 });
 
 
 app.listen(PORT, () => {
-    console.log(`Server is running on PORT:${PORT}`);
+    console.log(`Server is Runnig ON PORT:${PORT}`);
 });
