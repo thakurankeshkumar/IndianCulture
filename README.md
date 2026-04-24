@@ -1,6 +1,6 @@
 # Bharat - The Soul of India
 
-A responsive cultural website that presents the beauty, heritage, and diversity of India through interactive sections and rich visual design.
+A cultural web platform showcasing India with a rich editorial homepage and dynamic state detail pages powered by MongoDB.
 
 ## Live Demo
 
@@ -8,7 +8,13 @@ https://bharatculture.vercel.app/
 
 ## Overview
 
-This project serves a static frontend from an Express server. The UI includes smooth scrolling navigation, themed typography, and animated visual elements.
+This project combines:
+
+- A visually rich frontend in plain HTML/CSS/JavaScript
+- An Express server for static pages and API routes
+- A MongoDB-backed state data API
+
+The homepage is served from static files, while each state page loads data dynamically from `/api/state/:statename`.
 
 ## Tech Stack
 
@@ -17,76 +23,142 @@ This project serves a static frontend from an Express server. The UI includes sm
 - Vanilla JavaScript
 - Node.js
 - Express
+- MongoDB Atlas
+- Mongoose
+
+## Features
+
+- Responsive single-page cultural homepage
+- Searchable state tiles on homepage
+- Dynamic route per state: `/state/:statename`
+- API endpoint for state data: `/api/state/:statename`
+- Seed script to populate state/UT data into MongoDB
+- Request logging and 404 fallback handling
 
 ## Project Structure
 
 ```text
 FrontendBackendProject/
+|- data/
+|  |- states.js
+|- lib/
+|  |- db.js
+|- models/
+|  |- State.js
 |- public/
 |  |- index.html
 |  |- style.css
 |  |- script.js
-|  |- favicon.png
+|  |- state.html
+|  |- state.css
+|  |- state.js
+|- scripts/
+|  |- seedStates.js
 |- scerver.js
 |- package.json
-|- package-lock.json
-|- .gitignore
+|- vercel.json
 |- README.md
 ```
 
 ## Prerequisites
 
-- Node.js 14+
+- Node.js 18+
 - npm
+- MongoDB Atlas connection string
 
-## Setup and Run
+## Environment Variables
 
-1. Install dependencies:
+Create a `.env` file in the project root:
+
+```env
+MONGO_URI=your_mongodb_connection_string
+PORT=3000
+```
+
+Notes:
+
+- `MONGO_URI` is required for API/state data and seeding.
+- `PORT` is optional (defaults to `3000`).
+
+## Installation
 
 ```bash
 npm install
 ```
 
-2. Start in development mode (auto-reload with nodemon):
+## Seed Database
+
+Before using dynamic state pages, seed the collection:
+
+```bash
+npm run seed:states
+```
+
+This upserts state documents from `data/states.js` into MongoDB.
+
+## Run Locally
+
+Development mode (nodemon):
 
 ```bash
 npm run dev
 ```
 
-3. Open in browser:
+Production mode:
+
+```bash
+npm start
+```
+
+Open:
 
 ```text
 http://localhost:3000
 ```
 
-## Available Script
+## Available Scripts
 
-- `npm run dev` - Runs `scerver.js` using nodemon.
+- `npm run dev` - Runs `scerver.js` with nodemon
+- `npm start` - Runs `scerver.js` with Node
+- `npm run seed:states` - Seeds/upserts state data in MongoDB
+
+## API Endpoints
+
+- `GET /` - Serves homepage (`public/index.html`)
+- `GET /state/:statename` - Serves state details page shell (`public/state.html`)
+- `GET /api/state/:statename` - Returns state JSON by slug/name
+
+Example:
+
+```text
+/api/state/maharashtra
+/state/maharashtra
+```
 
 ## Server Behavior
 
-- Serves static files from `public/`.
-- Root route `/` returns `public/index.html`.
-- Logs each request in the terminal.
-- Returns `404 Page not found` for unknown routes.
-
-## Key Files
-
-- `public/index.html` - Main page markup.
-- `public/style.css` - Complete styling and responsive rules.
-- `public/script.js` - Frontend interactions and scroll behavior.
-- `scerver.js` - Express server entry point.
+- Serves static assets from `public/`
+- Logs every incoming request
+- Connects to MongoDB on API access
+- Returns `404 Page Not found` for unknown routes
 
 ## Deployment
 
-The production site is deployed on Vercel:
+Configured for Vercel using `vercel.json` with `scerver.js` as the serverless entry.
 
-https://bharatculture.vercel.app/
+Basic deployment flow:
+
+1. Set `MONGO_URI` in Vercel project environment variables.
+2. Deploy from repository.
+3. Verify:
+	- `/`
+	- `/state/maharashtra`
+	- `/api/state/maharashtra`
 
 ## Notes
 
-- File name is currently `scerver.js` (spelled this way in the project).
-- Port is set to `3000` in the current server code.
+- The server file name is intentionally `scerver.js` in this project.
+- Data model is defined in `models/State.js`.
 
 ## License
 
