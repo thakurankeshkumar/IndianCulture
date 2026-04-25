@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login | Bharat</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Lora:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/admin.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body class="admin-bg">
+    <div class="login-ambient" aria-hidden="true">
+        <span class="ambient-orb orb-1"></span>
+        <span class="ambient-orb orb-2"></span>
+        <span class="ambient-orb orb-3"></span>
+    </div>
+
+    <main class="auth-shell login-shell">
+        <section class="auth-intro">
+            <p class="eyebrow">Bharat Management</p>
+            <h1 class="auth-title">Admin Access</h1>
+            <p class="auth-copy">Secure control panel for updating state narratives, highlights, and travel
+                intelligence.</p>
+            <ul class="auth-points">
+                <li class="auth-point">
+                    <strong>Session Security</strong>
+                    <span>Session based authentication</span>
+                </li>
+                <li class="auth-point">
+                    <strong>Audit Visibility</strong>
+                    <span>Admin activity logging</span>
+                </li>
+                <li class="auth-point">
+                    <strong>Live Content Updates</strong>
+                    <span>Direct updates to state pages</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="auth-card">
+            <div class="auth-card-shine" aria-hidden="true"></div>
+            <p class="eyebrow">Admin Console</p>
+            <h2>Sign In</h2>
+            <p class="subline">Use your admin credentials to continue.</p>
+
+            <form id="adminLoginForm" class="auth-form">
+                <label class="auth-label">
+                    <span>Username</span>
+                    <input id="username" name="username" type="text" autocomplete="username" placeholder="Enter admin username"
+                        required />
+                </label>
+                <label class="auth-label">
+                    <span>Password</span>
+                    <input id="password" name="password" type="password" autocomplete="current-password"
+                        placeholder="Enter password" required />
+                </label>
+                <button id="loginBtn" type="submit">Login</button>
+            </form>
+
+            <p id="authMessage" class="message" aria-live="polite"></p>
+            <a class="back-link" href="/">Back to Home</a>
+        </section>
+    </main>
+
+    <script src="/admin-login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Bharat</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/admin.css" />
+</head>
+
+<body class="admin-bg">
+  <header class="topbar">
+    <div class="topbar-left">
+      <p class="eyebrow">Admin Console</p>
+      <h1>State Details Management</h1>
+      <p class="subline">A focused editing surface for all public state profile content.</p>
+    </div>
+    <div class="topbar-actions">
+      <span id="adminIdentity" class="admin-identity"></span>
+      <button id="logoutBtn" type="button" class="secondary-btn">Logout</button>
+    </div>
+  </header>
+
+  <main class="dashboard-grid">
+    <aside class="panel state-list-panel">
+      <div class="panel-heading">
+        <h2>State Library</h2>
+        <p class="subline">Pick a record to open in the editor.</p>
+      </div>
+      <div id="stateList" class="state-list"></div>
+    </aside>
+
+    <section class="panel form-panel">
+      <div class="panel-heading">
+        <h2>State Content Editor</h2>
+        <p class="subline">All changes publish to the same content used on the public page.</p>
+      </div>
+
+      <form id="stateForm" class="state-form">
+        <input type="hidden" id="stateId" name="stateId" />
+
+        <section class="form-section">
+          <h3 class="section-label">Core Information</h3>
+        <div class="field-grid">
+          <label>State Name<input id="name" name="name" type="text" disabled /></label>
+          <label>Slug<input id="slug" name="slug" type="text" disabled /></label>
+          <label>Capital<input id="capital" name="capital" type="text" required /></label>
+          <label>Region
+            <select id="region" name="region" required>
+              <option value="North">North</option>
+              <option value="South">South</option>
+              <option value="East">East</option>
+              <option value="West">West</option>
+              <option value="Central">Central</option>
+              <option value="Northeast">Northeast</option>
+            </select>
+          </label>
+          <label>Best Time To Visit<input id="bestTimeToVisit" name="bestTimeToVisit" type="text" /></label>
+          <label>Ideal Trip Duration<input id="idealTripDuration" name="idealTripDuration" type="text" /></label>
+        </div>
+        </section>
+
+        <section class="form-section">
+          <h3 class="section-label">Narrative Content</h3>
+        <label>Overview<textarea id="overview" name="overview" rows="4"></textarea></label>
+        <label>Geography<textarea id="geography" name="geography" rows="4"></textarea></label>
+        <label>History<textarea id="history" name="history" rows="4"></textarea></label>
+        </section>
+
+        <section class="form-section">
+          <h3 class="section-label">Highlights</h3>
+        <div class="field-grid">
+          <label>Languages (one per line)<textarea id="languages" name="languages" rows="5"></textarea></label>
+          <label>Famous For (one per line)<textarea id="famousFor" name="famousFor" rows="5"></textarea></label>
+          <label>Culture Highlights (one per line)<textarea id="cultureHighlights" name="cultureHighlights" rows="5"></textarea></label>
+          <label>Cuisine Highlights (one per line)<textarea id="cuisineHighlights" name="cuisineHighlights" rows="5"></textarea></label>
+          <label>Economy Highlights (one per line)<textarea id="economyHighlights" name="economyHighlights" rows="5"></textarea></label>
+          <label>Travel Tips (one per line)<textarea id="travelTips" name="travelTips" rows="5"></textarea></label>
+        </div>
+        </section>
+
+        <section class="form-section">
+          <h3 class="section-label">Structured JSON Blocks</h3>
+        <label>Must Visit (JSON array of objects)<textarea id="mustVisit" name="mustVisit" rows="7" placeholder='[{"name":"Taj Mahal","description":"Iconic monument"}]'></textarea></label>
+        <label>Major Festivals (JSON array of objects)<textarea id="majorFestivals" name="majorFestivals" rows="7" placeholder='[{"name":"Durga Puja","month":"October","note":"Big celebrations"}]'></textarea></label>
+        </section>
+
+        <div class="actions">
+          <button id="saveBtn" type="submit">Save Changes</button>
+        </div>
+      </form>
+
+      <p id="formMessage" class="message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="/admin.js"></script>
+</body>
+
+</html>
