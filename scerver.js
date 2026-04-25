@@ -182,7 +182,14 @@ app.post("/admin/login", async (req, res) => {
     };
 
     logAdminAction(req, "LOGIN_SUCCESS");
-    return res.json({ ok: true, redirectTo: "/admin/dashboard" });
+    
+    // Explicitly save session before sending response to ensure cookie is set
+    req.session.save((err) => {
+        if (err) {
+            return res.status(500).json({ error: "Failed to save session" });
+        }
+        res.json({ ok: true, redirectTo: "/admin/dashboard" });
+    });
 });
 
 app.post("/admin/logout", ensureAdmin, (req, res) => {
