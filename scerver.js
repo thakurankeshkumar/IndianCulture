@@ -196,6 +196,11 @@ app.get("/admin/dashboard", (req, res) => {
     return res.sendFile(path.join(PUBLIC_DIR, "admin.html"));
 });
 
+// Favicon handler
+app.get("/favicon.ico", (req, res) => {
+    res.sendFile(path.join(PUBLIC_DIR, "favicon.png"));
+});
+
 app.use(express.static(PUBLIC_DIR));
 
 app.get("/state/:statename", (req, res) => {
