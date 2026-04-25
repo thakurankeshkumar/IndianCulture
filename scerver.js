@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // MongoDB connection string for session store
-const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/bharat";
+const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI;
 
 // Configure session with MongoDB store
 app.use(
@@ -41,7 +41,7 @@ app.use(
         secret: process.env.SESSION_SECRET || "replace-this-session-secret",
         resave: false,
         saveUninitialized: false,
-        store: new MongoStore({
+        store: MongoStore.create({
             mongoUrl: mongoUri,
             collectionName: "sessions",
             ttl: 8 * 60 * 60, // 8 hours
@@ -197,6 +197,7 @@ app.post("/admin/login", async (req, res) => {
     // Explicitly save session before sending response to ensure cookie is set
     req.session.save((err) => {
         if (err) {
+            console.error("Failed to save session:", err.message);
             return res.status(500).json({ error: "Failed to save session" });
         }
         res.json({ ok: true, redirectTo: "/admin/dashboard" });
