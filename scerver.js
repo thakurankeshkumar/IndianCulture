@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const dotenv = require("dotenv");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const bcrypt = require("bcryptjs");
 const connectDB = require("./lib/db");
 const State = require("./models/State");
@@ -29,12 +30,22 @@ try {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// MongoDB connection string for session store
+const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/bharat";
+
+// Configure session with MongoDB store
 app.use(
     session({
         name: "bharat_admin_sid",
         secret: process.env.SESSION_SECRET || "replace-this-session-secret",
         resave: false,
         saveUninitialized: false,
+        store: new MongoStore({
+            mongoUrl: mongoUri,
+            collectionName: "sessions",
+            ttl: 8 * 60 * 60, // 8 hours
+        }),
         cookie: {
             httpOnly: true,
             sameSite: "lax",
