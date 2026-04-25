@@ -15,6 +15,9 @@ const PUBLIC_DIR = path.join(__dirname, "public");
 const LOGS_DIR = path.join(__dirname, "logs");
 const ADMIN_LOG_FILE = path.join(LOGS_DIR, "admin-actions.log");
 
+// Vercel/Reverse proxy aware settings for secure session cookies
+app.set("trust proxy", 1);
+
 // Create logs directory only if it doesn't exist and can be created
 // In serverless environments like Vercel, this may fail gracefully
 try {
@@ -34,26 +37,32 @@ app.use(express.urlencoded({ extended: false }));
 // MongoDB connection string for session store
 const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI;
 
+const sessionConfig = {
+    name: "bharat_admin_sid",
+    secret: process.env.SESSION_SECRET || "replace-this-session-secret",
+    resave: false,
+    saveUninitialized: false,
+    proxy: true,
+    cookie: {
+        httpOnly: true,
+        sameSite: "lax",
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 1000 * 60 * 60 * 8,
+    },
+};
+
+if (mongoUri) {
+    sessionConfig.store = MongoStore.create({
+        mongoUrl: mongoUri,
+        collectionName: "sessions",
+        ttl: 8 * 60 * 60, // 8 hours
+    });
+} else {
+    console.warn("No MongoDB URI found for session store. Falling back to MemoryStore.");
+}
+
 // Configure session with MongoDB store
-app.use(
-    session({
-        name: "bharat_admin_sid",
-        secret: process.env.SESSION_SECRET || "replace-this-session-secret",
-        resave: false,
-        saveUninitialized: false,
-        store: MongoStore.create({
-            mongoUrl: mongoUri,
-            collectionName: "sessions",
-            ttl: 8 * 60 * 60, // 8 hours
-        }),
-        cookie: {
-            httpOnly: true,
-            sameSite: "lax",
-            secure: process.env.NODE_ENV === "production",
-            maxAge: 1000 * 60 * 60 * 8,
-        },
-    })
-);
+app.use(session(sessionConfig));
 
 app.use((req, res, next) => {
     const timestamp = new Date().toISOString();
@@ -67,8 +76,15 @@ function logAdminAction(req, action, details = "") {
     const timestamp = new Date().toISOString();
     const actor = req.session?.admin?.username || "unknown";
     const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress || "unknown-ip";
-    const line = `[${timestamp}] [${actor}] [${ip}] ${action}${details ? ` :: ${details}` : ""}\n`;
-    fs.appendFile(ADMIN_LOG_FILE, line, (error) => {
+    const line = `[${timestamp}] [${actor}] [${ip}] ${action}${details ? ` :: ${details}` : ""}`;
+
+    // Serverless environments are read-only; avoid file writes in production.
+    if (process.env.NODE_ENV === "production") {
+        console.log(line);
+        return;
+    }
+
+    fs.appendFile(ADMIN_LOG_FILE, `${line}\n`, (error) => {
         if (error) {
             console.error("Failed to write admin action log:", error.message);
         }
