@@ -14,8 +14,17 @@ const PUBLIC_DIR = path.join(__dirname, "public");
 const LOGS_DIR = path.join(__dirname, "logs");
 const ADMIN_LOG_FILE = path.join(LOGS_DIR, "admin-actions.log");
 
-if (!fs.existsSync(LOGS_DIR)) {
-    fs.mkdirSync(LOGS_DIR, { recursive: true });
+// Create logs directory only if it doesn't exist and can be created
+// In serverless environments like Vercel, this may fail gracefully
+try {
+    if (!fs.existsSync(LOGS_DIR)) {
+        fs.mkdirSync(LOGS_DIR, { recursive: true });
+    }
+} catch (error) {
+    // Silently fail in serverless environments where persistent storage isn't available
+    if (process.env.NODE_ENV !== "production") {
+        console.warn("Could not create logs directory:", error.message);
+    }
 }
 
 app.use(express.json());
