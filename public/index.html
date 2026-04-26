@@ -737,6 +737,33 @@
     </div>
   </footer>
 
+  <!-- Chatbot Widget -->
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <span class="chat-icon">🐘</span>
+        <h3>Tour Guide</h3>
+      </div>
+      <button class="chat-close" id="chatClose">&times;</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-msg bot-msg">
+        Namaste! I am your Tour Guide. Ask me anything about Indian culture, heritage, travel tips, or what to carry for your journey!
+      </div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chatInput" placeholder="Type your message..." />
+      <button id="chatSend">Send</button>
+    </div>
+  </div>
+
+  <button class="chat-toggle" id="chatToggle" aria-label="Open Chat">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="script.js"></script>
 </body>
 

@@ -161,3 +161,108 @@ function scrollToSection(id) {
   // Scroll to the element smoothly if it exists
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 }
+
+
+
+// Chatbot functionality
+const chatToggle = document.getElementById('chatToggle');
+const chatClose = document.getElementById('chatClose');
+const chatWidget = document.getElementById('chatWidget');
+const chatInput = document.getElementById('chatInput');
+const chatSend = document.getElementById('chatSend');
+const chatBody = document.getElementById('chatBody');
+
+let chatHistory = [];
+
+if (chatToggle && chatClose && chatWidget && chatInput && chatSend && chatBody) {
+  
+  // Toggle chat window
+  chatToggle.addEventListener('click', () => {
+    chatWidget.classList.add('active');
+    chatInput.focus();
+  });
+  
+  chatClose.addEventListener('click', () => {
+    chatWidget.classList.remove('active');
+  });
+  
+  // Function to add a message to the UI
+  function addMessage(text, sender, isMarkdown = false) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('chat-msg', sender === 'user' ? 'user-msg' : 'bot-msg');
+    
+    if (isMarkdown && typeof marked !== 'undefined') {
+      msgDiv.innerHTML = marked.parse(text);
+    } else {
+      msgDiv.textContent = text;
+    }
+    
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+  
+  // Function to show/hide typing indicator
+  function showTyping(show) {
+    if (show) {
+      const typingDiv = document.createElement('div');
+      typingDiv.classList.add('chat-msg', 'bot-msg', 'typing-indicator');
+      typingDiv.id = 'typingIndicator';
+      typingDiv.innerHTML = '<span class="typing-dots">Typing</span>';
+      chatBody.appendChild(typingDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    } else {
+      const typingDiv = document.getElementById('typingIndicator');
+      if (typingDiv) {
+        typingDiv.remove();
+      }
+    }
+  }
+  
+  // Handle sending message
+  async function handleSend() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+    
+    // UI updates for user message
+    addMessage(message, 'user');
+    chatInput.value = '';
+    
+    // Show typing indicator
+    showTyping(true);
+    
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message, history: chatHistory })
+      });
+      
+      const data = await response.json();
+      
+      showTyping(false);
+      
+      if (response.ok && data.reply) {
+        addMessage(data.reply, 'bot', true);
+        
+        // Update history
+        chatHistory.push({ role: 'user', content: message });
+        chatHistory.push({ role: 'assistant', content: data.reply });
+      } else {
+        addMessage(data.error || 'Sorry, I am having trouble connecting.', 'bot');
+      }
+      
+    } catch (error) {
+      showTyping(false);
+      addMessage('Sorry, a network error occurred. Please try again.', 'bot');
+    }
+  }
+  
+  chatSend.addEventListener('click', handleSend);
+  chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      handleSend();
+    }
+  });
+}

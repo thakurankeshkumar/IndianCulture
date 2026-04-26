@@ -163,14 +163,21 @@ function fillForm(state) {
   fieldMap.majorFestivals.value = formatJson(state.majorFestivals);
 }
 
+// ==========================================
+// AUTHORIZATION: SESSION VALIDATION
+// ==========================================
+// This function verifies if the user has an active, valid session.
+// It hits an endpoint protected by the backend's ensureAdmin middleware.
 async function ensureAdminSession() {
   const response = await fetch('/admin/api/me');
 
+  // If the backend returns 401 Unauthorized, the session is invalid or expired
   if (response.status === 401) {
-    window.location.href = '/admin/login';
+    window.location.href = '/admin/login'; // Force redirect to login page
     return false;
   }
 
+  // If valid, display the logged-in admin's username
   const payload = await response.json();
   adminIdentity.textContent = `Signed in as ${payload.admin.username}`;
   return true;
@@ -271,6 +278,11 @@ stateForm.addEventListener('submit', async (event) => {
   }
 });
 
+// ==========================================
+// AUTHORIZATION: LOGOUT
+// ==========================================
+// Sends a POST request to destroy the session on the backend
+// and then redirects the user to the login page.
 logoutBtn.addEventListener('click', async () => {
   try {
     await fetch('/admin/logout', { method: 'POST' });

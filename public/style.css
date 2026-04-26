@@ -910,3 +910,175 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+/* CHATBOT WIDGET */
+.chat-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: var(--maroon);
+  color: var(--gold-light);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(107, 15, 26, 0.4);
+  transition: transform 0.3s, background 0.3s;
+}
+.chat-toggle:hover {
+  transform: scale(1.1);
+  background: var(--maroon-deep);
+}
+.chat-widget {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 380px;
+  height: 520px;
+  background: var(--ivory);
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  box-shadow: 0 12px 32px rgba(26, 10, 0, 0.3);
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+  overflow: hidden;
+}
+.chat-widget.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+.chat-header {
+  background: var(--maroon);
+  color: var(--gold-light);
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--gold);
+}
+.chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.chat-header-info h3 {
+  font-family: 'Yatra One', serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+.chat-close {
+  background: transparent;
+  border: none;
+  color: var(--gold-light);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.chat-close:hover { color: var(--ivory); }
+.chat-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--cream);
+  scroll-behavior: smooth;
+}
+.chat-body::-webkit-scrollbar { width: 6px; }
+.chat-body::-webkit-scrollbar-thumb { background: rgba(107, 15, 26, 0.3); border-radius: 3px; }
+.chat-msg {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  animation: fadeIn 0.3s ease;
+  word-wrap: break-word;
+}
+.chat-msg p { margin-bottom: 8px; }
+.chat-msg p:last-child { margin-bottom: 0; }
+.chat-msg ul, .chat-msg ol { margin-left: 20px; margin-bottom: 8px; }
+.chat-msg li { margin-bottom: 4px; }
+.chat-msg strong { color: var(--maroon-deep); }
+.bot-msg {
+  align-self: flex-start;
+  background: var(--white);
+  color: var(--text-dark);
+  border: 1px solid rgba(201,150,42,0.3);
+  border-bottom-left-radius: 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.user-msg {
+  align-self: flex-end;
+  background: var(--maroon);
+  color: var(--ivory);
+  border-bottom-right-radius: 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.user-msg strong { color: var(--gold-light); }
+.chat-footer {
+  display: flex;
+  padding: 12px;
+  background: var(--white);
+  border-top: 1px solid rgba(201,150,42,0.3);
+  gap: 8px;
+}
+.chat-footer input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid rgba(107, 15, 26, 0.3);
+  border-radius: 20px;
+  outline: none;
+  font-family: 'Lora', serif;
+  background: var(--ivory);
+  transition: border-color 0.3s;
+}
+.chat-footer input:focus {
+  border-color: var(--saffron);
+}
+.chat-footer button {
+  background: var(--gold);
+  color: var(--maroon-deep);
+  border: none;
+  padding: 0 20px;
+  border-radius: 20px;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+.chat-footer button:hover { background: var(--gold-light); }
+.chat-footer button:active { transform: scale(0.95); }
+.typing-indicator {
+  align-self: flex-start;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-style: italic;
+  padding: 8px 12px;
+  background: transparent;
+}
+.typing-dots::after {
+  content: '.';
+  animation: typing 1.5s infinite steps(4, end);
+}
+@keyframes typing {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60% { content: '...'; }
+  80%, 100% { content: ''; }
+}

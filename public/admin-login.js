@@ -23,6 +23,7 @@ form.addEventListener('submit', async (event) => {
   setSubmitting(true);
 
   try {
+    // AUTHORIZATION: Send credentials to the backend login API
     const response = await fetch('/admin/login', {
       method: 'POST',
       headers: {
@@ -33,12 +34,15 @@ form.addEventListener('submit', async (event) => {
 
     const payload = await response.json();
 
+    // AUTHORIZATION: Handle rejection (e.g., incorrect password)
     if (!response.ok) {
       message.className = 'message error';
       message.textContent = payload.error || 'Login failed';
       return;
     }
 
+    // AUTHORIZATION: On success, the backend sets an HttpOnly cookie
+    // Redirect the user to the protected dashboard
     message.className = 'message success';
     message.textContent = 'Login successful. Redirecting...';
     window.location.href = payload.redirectTo || '/admin/dashboard';

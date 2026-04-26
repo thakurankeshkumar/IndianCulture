@@ -2,11 +2,12 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const dotenv = require("dotenv");
-const session = require("express-session");
-const { MongoStore } = require("connect-mongo");
-const bcrypt = require("bcryptjs");
+const session = require("express-session"); // express-session: Middleware to manage user sessions across HTTP requests
+const { MongoStore } = require("connect-mongo"); // connect-mongo: Stores session data persistently in MongoDB
+const bcrypt = require("bcryptjs"); // bcryptjs: Library for securely hashing and comparing passwords
 const connectDB = require("./lib/db");
 const State = require("./models/State");
+const Groq = require("groq-sdk");
 dotenv.config();
 
 const app = express();
@@ -36,6 +37,12 @@ app.use(express.urlencoded({ extended: false }));
 
 // MongoDB connection string for session store
 const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI;
+
+// ==========================================
+// AUTHORIZATION: SESSION CONFIGURATION
+// ==========================================
+// We configure sessions to keep users logged in securely.
+// Cookies store a session ID, while the actual data stays on the server/DB.
 
 const sessionConfig = {
     name: "bharat_admin_sid",
@@ -91,11 +98,18 @@ function logAdminAction(req, action, details = "") {
     });
 }
 
+// ==========================================
+// AUTHORIZATION: MIDDLEWARE (Auth Guard)
+// ==========================================
+// This middleware checks if a valid admin session exists.
+// If it doesn't, the request is rejected with a 401 Unauthorized status.
+// This is attached to routes that require authentication to be accessed.
 function ensureAdmin(req, res, next) {
     if (!req.session?.admin) {
         return res.status(401).json({ error: "Admin login required" });
     }
 
+    // If authenticated, proceed to the actual route handler
     return next();
 }
 
@@ -180,7 +194,11 @@ app.get("/admin/login", (req, res) => {
     return res.sendFile(path.join(PUBLIC_DIR, "admin-login.html"));
 });
 
+// ==========================================
+// AUTHORIZATION: LOGIN ENDPOINT
+// ==========================================
 app.post("/admin/login", async (req, res) => {
+    // 1. Extract username and password from the incoming request body
     const { username, password } = req.body;
     const adminUsername = process.env.ADMIN_USERNAME;
     const adminPasswordHash = process.env.ADMIN_PASSWORD_HASH || "";
@@ -192,17 +210,24 @@ app.post("/admin/login", async (req, res) => {
 
     let isPasswordValid = false;
 
+    // 3. Verify Password using bcrypt
+    // If we have a hash in the env, we compare the entered password to the hash.
+    // bcrypt.compare() hashes the entered password and checks if it matches the stored hash safely.
     if (adminPasswordHash) {
         isPasswordValid = await bcrypt.compare(password, adminPasswordHash);
     } else {
+        // Fallback for plain text password comparison (less secure, used for dev)
         isPasswordValid = password === adminPasswordPlain;
     }
 
+    // 4. Check if credentials match
     if (username !== adminUsername || !isPasswordValid) {
         logAdminAction(req, "LOGIN_FAILED", `username=${username}`);
         return res.status(401).json({ error: "Invalid admin credentials" });
     }
 
+    // 5. Establish Session
+    // We attach admin data to req.session. This creates a secure cookie sent to the browser.
     req.session.admin = {
         username: adminUsername,
         loggedInAt: new Date().toISOString(),
@@ -220,13 +245,20 @@ app.post("/admin/login", async (req, res) => {
     });
 });
 
+// ==========================================
+// AUTHORIZATION: LOGOUT ENDPOINT
+// ==========================================
+// Protected by ensureAdmin. Clears the session from the DB and browser.
 app.post("/admin/logout", ensureAdmin, (req, res) => {
     logAdminAction(req, "LOGOUT");
+    
+    // 1. Destroy session on the server
     req.session.destroy((error) => {
         if (error) {
             return res.status(500).json({ error: "Failed to log out" });
         }
 
+        // 2. Clear the session cookie from the user's browser
         res.clearCookie("bharat_admin_sid");
         return res.json({ ok: true, redirectTo: "/admin/login" });
     });
@@ -285,6 +317,44 @@ app.get("/api/state/:statename", async (req, res) => {
         const duration = Date.now() - startTime;
         console.error(`API Error: ${err.message} (${duration}ms)`);
         return res.status(500).json({ error: "Failed to fetch the details of states" });
+    }
+});
+
+app.post("/api/chat", async (req, res) => {
+    try {
+        const { message, history } = req.body;
+        if (!process.env.GROQ_API_KEY) {
+            return res.status(500).json({ error: "Chatbot is currently unavailable. (Missing API Key)" });
+        }
+        
+        const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+        
+        const systemPrompt = `You are 'Tour Guide', an expert on Indian culture, heritage, and travel.
+You MUST be able to answer user queries regarding traveling to Indian states, their culture, heritage, and traditions.
+You MUST provide practical travel advice, including things to carry (packing lists) while traveling to a particular state.
+Maintain a polite, welcoming, and culturally respectful tone that matches a premium Indian cultural website.
+Keep your answers concise, informative, and formatted clearly. If applicable, use bullet points for readability. Do not use extremely long paragraphs.`;
+
+        // Format history for groq (expecting an array of { role: 'user' | 'assistant', content: string })
+        const messages = [
+            { role: "system", content: systemPrompt },
+            ...(history || []),
+            { role: "user", content: message }
+        ];
+
+        const chatCompletion = await groq.chat.completions.create({
+            messages,
+            model: "llama-3.1-8b-instant", // Updated to currently supported model
+            temperature: 0.7,
+            max_tokens: 1024,
+        });
+
+        const reply = chatCompletion.choices[0]?.message?.content || "I apologize, but I am unable to process your request at the moment.";
+        
+        return res.json({ reply });
+    } catch (error) {
+        console.error("Chatbot API Error:", error.message);
+        return res.status(500).json({ error: "Failed to communicate with Tour Guide" });
     }
 });
 
