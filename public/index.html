@@ -43,6 +43,8 @@
   <!-- HERO -->
   <section id="hero" class="hero">
     <div class="hero-bg-gradient"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-particles" aria-hidden="true"></div>
     <svg class="hero-mandala" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
       <g fill="none" stroke="#C9962A" stroke-width="0.5" transform="translate(250,250)">
         <circle r="40" />
@@ -126,12 +128,42 @@
       </div>
     </div>
     <div class="hero-content">
-      <p class="hero-eyebrow">✦ The Eternal Civilization ✦</p>
-      <h1 class="hero-title">भारत<br><span class="accent">Bharat</span></h1>
-      <p class="hero-subtitle">India — Land of Ancient Wisdom</p>
-      <p class="hero-desc">A land where time flows like the sacred Ganges — carrying 5,000 years of civilization,
-        philosophy, art, and devotion to the sea of eternity.</p>
-      <a href="#history" class="hero-cta">Begin the Journey</a>
+      <div class="hero-copy">
+        <p class="hero-eyebrow">✦ Echoes of a Living Civilization ✦</p>
+        <h1 class="hero-title">भारत<br><span class="accent">Bharat</span></h1>
+        <p class="hero-subtitle">Where rivers, rituals, and wisdom shape a living heritage</p>
+        <p class="hero-desc">A land of temple bells, classical ragas, carved sandstone, and timeless philosophies — Bharat is not a memory, but a living culture carried forward by its people.</p>
+        <div class="hero-actions">
+          <a href="#history" class="hero-cta">Begin the Journey</a>
+          <a href="#culture" class="hero-secondary">Discover Culture</a>
+        </div>
+        <div class="hero-chips" aria-label="Cultural highlights">
+          <span>Temple Architecture</span>
+          <span>Classical Arts</span>
+          <span>Spiritual Traditions</span>
+        </div>
+      </div>
+
+      <aside class="heritage-card">
+        <p class="heritage-label">Living Heritage</p>
+        <h2>From the ghats to the ghazals, from the Vedas to the modern republic.</h2>
+        <p class="heritage-text">India’s identity is woven from sacred rivers, hand-crafted monuments, regional languages, and festivals that keep community at the center of life.</p>
+        <div class="heritage-grid">
+          <div>
+            <strong>5000+</strong>
+            <span>Years of Continuity</span>
+          </div>
+          <div>
+            <strong>40+</strong>
+            <span>Heritage Landmarks</span>
+          </div>
+          <div>
+            <strong>1</strong>
+            <span>Shared Civilisational Spirit</span>
+          </div>
+        </div>
+        <div class="heritage-note">A mosaic of faith, craft, food, and memory.</div>
+      </aside>
     </div>
     <div class="scroll-hint">
       <div class="scroll-line"></div>
@@ -146,336 +178,550 @@
 
   <!-- INTRO STRIP -->
   <div class="intro-strip">
+    <div class="intro-strip-header">
+      <p class="intro-strip-label">At a Glance</p>
+      <p class="intro-strip-note">A compact view of the scale, diversity, and continuity that define Bharat.</p>
+    </div>
     <div class="strip-stat">
-      <div class="num">5000+</div>
+      <div class="num" data-target="5000" data-suffix="+">5000+</div>
       <div class="label">Years of Civilization</div>
     </div>
     <div class="strip-stat">
-      <div class="num">28</div>
+      <div class="num" data-target="28">28</div>
       <div class="label">States & 8 UTs</div>
     </div>
     <div class="strip-stat">
-      <div class="num">1600+</div>
+      <div class="num" data-target="1600" data-suffix="+">1600+</div>
       <div class="label">Languages & Dialects</div>
     </div>
     <div class="strip-stat">
-      <div class="num">40</div>
+      <div class="num" data-target="40">40</div>
       <div class="label">UNESCO World Heritage Sites</div>
     </div>
     <div class="strip-stat">
-      <div class="num">6</div>
+      <div class="num" data-target="6">6</div>
       <div class="label">Major Religions Born Here</div>
     </div>
   </div>
 
   <!-- HISTORY -->
-  <section id="history">
-    <div style="padding: 100px 60px;">
-      <p class="section-label">✦ The Story of Ages ✦</p>
-      <h2 class="section-title">A History Like No Other</h2>
-      <div class="section-divider"></div>
-      <p class="section-intro">From the banks of the Indus to the halls of independence, India's story is one of
-        resilience, genius, and unbroken continuity.</p>
+  <section id="history" class="history-section">
+    <div class="history-wrap">
+      <div class="history-head reveal">
+        <p class="section-label section-label-light">✦ The Story of Ages ✦</p>
+        <h2 class="section-title history-title">A Living Timeline of Bharat</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro history-intro">Choose a chapter to see how India evolved through cities, scriptures, empires, scholarship, synthesis, and independence. Each era reveals a different layer of the same civilizational story.</p>
+      </div>
 
-      <div class="timeline">
-        <div class="tl-item reveal">
-          <div class="tl-text">
-            <p class="tl-year">3300 – 1300 BCE</p>
-            <h3 class="tl-title">Indus Valley Civilization</h3>
-            <p class="tl-desc">One of the world's earliest urban civilizations, thriving in cities like Mohenjo-daro and
-              Harappa. Advanced drainage systems, standardized weights, and a script still undeciphered today — a
-              testament to remarkable sophistication.</p>
+      <div class="history-layout">
+        <aside class="history-rail reveal">
+          <div class="history-rail-top">
+            <p class="history-rail-label">Select a chapter</p>
+            <p class="history-rail-note">Tap any period to update the main story card. The layout keeps the era, impact, and legacy easy to scan.</p>
           </div>
-          <div class="tl-dot"></div>
-          <div class="tl-spacer"></div>
-        </div>
-        <div class="tl-item reveal">
-          <div class="tl-spacer"></div>
-          <div class="tl-dot"></div>
-          <div class="tl-text">
-            <p class="tl-year">1500 – 500 BCE</p>
-            <h3 class="tl-title">Vedic Age & Sacred Knowledge</h3>
-            <p class="tl-desc">The Vedas — among humanity's oldest scriptures — were composed in this era. Sanskrit
-              flourished, the caste system emerged, and the philosophical traditions of Hinduism, Buddhism, and Jainism
-              were born along the Gangetic plains.</p>
+
+          <div class="history-tabs" role="tablist" aria-label="History chapters">
+            <button class="history-tab active" type="button" data-era="indus" aria-pressed="true">
+              <span>01</span>
+              <strong>Indus</strong>
+              <em>3300–1300 BCE</em>
+            </button>
+            <button class="history-tab" type="button" data-era="vedic" aria-pressed="false">
+              <span>02</span>
+              <strong>Vedic</strong>
+              <em>1500–500 BCE</em>
+            </button>
+            <button class="history-tab" type="button" data-era="maurya" aria-pressed="false">
+              <span>03</span>
+              <strong>Maurya</strong>
+              <em>322–185 BCE</em>
+            </button>
+            <button class="history-tab" type="button" data-era="gupta" aria-pressed="false">
+              <span>04</span>
+              <strong>Gupta</strong>
+              <em>320–550 CE</em>
+            </button>
+            <button class="history-tab" type="button" data-era="mughal" aria-pressed="false">
+              <span>05</span>
+              <strong>Mughal</strong>
+              <em>1526–1857 CE</em>
+            </button>
+            <button class="history-tab" type="button" data-era="independence" aria-pressed="false">
+              <span>06</span>
+              <strong>Freedom</strong>
+              <em>1947 CE</em>
+            </button>
           </div>
-        </div>
-        <div class="tl-item reveal">
-          <div class="tl-text">
-            <p class="tl-year">322 – 185 BCE</p>
-            <h3 class="tl-title">The Maurya Empire</h3>
-            <p class="tl-desc">Under Chandragupta Maurya and the visionary Emperor Ashoka, India experienced its first
-              great unification. Ashoka's Dhamma spread peace, religious tolerance, and the wheel of law — the Ashoka
-              Chakra — now at the heart of India's flag.</p>
+        </aside>
+
+        <article class="history-stage reveal">
+          <div class="history-stage-header">
+            <div>
+              <p class="history-kicker" id="historyKicker">Civilizational Beginnings</p>
+              <h3 id="historyTitle">Indus Valley Civilization</h3>
+            </div>
+            <div class="history-badge" id="historyRange">3300 – 1300 BCE</div>
           </div>
-          <div class="tl-dot"></div>
-          <div class="tl-spacer"></div>
-        </div>
-        <div class="tl-item reveal">
-          <div class="tl-spacer"></div>
-          <div class="tl-dot"></div>
-          <div class="tl-text">
-            <p class="tl-year">320 – 550 CE</p>
-            <h3 class="tl-title">The Gupta Golden Age</h3>
-            <p class="tl-desc">Mathematics (zero, decimal system), astronomy (earth's circumference), medicine
-              (Ayurveda), literature (Kalidasa), and the arts all flourished. The world's first universities like
-              Nalanda attracted scholars from China, Greece, and Persia.</p>
+          <div class="history-progress" aria-hidden="true">
+            <span id="historyProgressBar"></span>
           </div>
-        </div>
-        <div class="tl-item reveal">
-          <div class="tl-text">
-            <p class="tl-year">1526 – 1857 CE</p>
-            <h3 class="tl-title">The Mughal Era</h3>
-            <p class="tl-desc">A remarkable synthesis of Persian, Central Asian, and Indian cultures produced
-              breathtaking architecture (Taj Mahal, Red Fort), miniature painting, classical music (Hindustani
-              tradition), and rich literature. A civilization of unparalleled grandeur.</p>
+
+          <div class="history-stage-grid">
+            <section class="history-story">
+              <p class="history-story-label">What defined this era</p>
+              <p class="history-summary" id="historySummary">One of the world’s earliest urban societies, known for planning, drainage, trade, and a remarkable sense of order.</p>
+              <div class="history-bullets" id="historyHighlights">
+                <div class="history-bullet">Planned cities with advanced drainage systems</div>
+                <div class="history-bullet">Standardized weights, seals, and long-distance trade</div>
+                <div class="history-bullet">A script that still invites discovery</div>
+              </div>
+            </section>
+
+            <section class="history-visual">
+              <div class="history-wheel">
+                <span class="history-wheel-value" id="historyStat">400+</span>
+                <span class="history-wheel-label" id="historyStatLabel">urban settlements and trade centers</span>
+              </div>
+              <p class="history-quote" id="historyQuote">"India’s story begins not as a myth, but as an urban civilization built on precision and exchange."</p>
+            </section>
           </div>
-          <div class="tl-dot"></div>
-          <div class="tl-spacer"></div>
-        </div>
-        <div class="tl-item reveal">
-          <div class="tl-spacer"></div>
-          <div class="tl-dot"></div>
-          <div class="tl-text">
-            <p class="tl-year">1947 CE</p>
-            <h3 class="tl-title">Independence — A Nation Reborn</h3>
-            <p class="tl-desc">On August 15, 1947, India gained independence from British rule through one of history's
-              greatest non-violent movements, led by Mahatma Gandhi. The world's largest democracy was born, with a
-              Constitution that enshrines equality, justice, and liberty.</p>
+
+          <div class="history-facts">
+            <div class="history-fact">
+              <span>Culture</span>
+              <strong id="historyFact1">Urban planning</strong>
+            </div>
+            <div class="history-fact">
+              <span>Legacy</span>
+              <strong id="historyFact2">Trade networks</strong>
+            </div>
+            <div class="history-fact">
+              <span>Takeaway</span>
+              <strong id="historyFact3">Continuity begins here</strong>
+            </div>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- CULTURE -->
-  <section id="culture">
-    <p class="section-label" style="color: var(--gold);">✦ The Living Tapestry ✦</p>
-    <h2 class="section-title">Culture & Traditions</h2>
-    <div class="section-divider"></div>
-    <p class="section-intro">India is not one culture — it is a magnificent mosaic of hundreds, each with its own
-      language, music, dance, dress, and devotion.</p>
+  <section id="culture" class="culture-section">
+    <div class="culture-ambient" aria-hidden="true"></div>
+    <div class="culture-wrap">
+      <div class="culture-head reveal" style="--reveal-delay: 0s;">
+        <p class="section-label section-label-light">✦ The Living Tapestry ✦</p>
+        <h2 class="section-title">Culture & Traditions</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">India is not one culture — it is a magnificent mosaic of hundreds, each with its own
+          language, music, dance, dress, and devotion.</p>
+      </div>
 
-    <div class="culture-grid reveal">
-      <div class="culture-card">
-        <span class="card-icon">🎭</span>
-        <h3 class="card-title">Classical Dance Forms</h3>
-        <p class="card-text">India has eight classical dance forms recognized by the Sangeet Natak Akademi —
-          Bharatanatyam (Tamil Nadu), Kathak (North India), Odissi (Odisha), Kuchipudi (Andhra Pradesh), Manipuri,
-          Mohiniyattam, Kathakali, and Sattriya — each a sacred language of devotion in motion.</p>
+      <div class="culture-spotlight">
+        <article class="culture-hero-card reveal" style="--reveal-delay: 0.08s;">
+          <p class="culture-hero-kicker">Living, layered, local</p>
+          <h3>Culture in India is not preserved in museums alone. It is performed in streets, homes, shrines, markets, and festivals every day.</h3>
+          <p>From temple courtyards and village fairs to classical stages and contemporary cities, traditions continue to evolve while keeping memory, identity, and community at the center.</p>
+          <div class="culture-metrics">
+            <div class="culture-metric">
+              <strong>1600+</strong>
+              <span>Languages and dialects carrying local identity</span>
+            </div>
+            <div class="culture-metric">
+              <strong>8</strong>
+              <span>Classical dance forms recognized nationwide</span>
+            </div>
+            <div class="culture-metric">
+              <strong>1000s</strong>
+              <span>Folk practices, rituals, and craft traditions</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="culture-side reveal" style="--reveal-delay: 0.16s;">
+          <div class="culture-side-card">
+            <span>01</span>
+            <div>
+              <h4>Rhythm</h4>
+              <p>Temple bells, drums, ragas, and devotional songs shape the daily soundscape.</p>
+            </div>
+          </div>
+          <div class="culture-side-card">
+            <span>02</span>
+            <div>
+              <h4>Craft</h4>
+              <p>Handloom, metalwork, stone carving, and miniature painting keep skilled hands relevant.</p>
+            </div>
+          </div>
+          <div class="culture-side-card">
+            <span>03</span>
+            <div>
+              <h4>Memory</h4>
+              <p>Epics, folktales, and oral traditions carry values across generations and regions.</p>
+            </div>
+          </div>
+          <div class="culture-quote">"A civilization stays alive when its traditions keep adapting without losing their roots."</div>
+        </aside>
       </div>
-      <div class="culture-card">
-        <span class="card-icon">🎵</span>
-        <h3 class="card-title">Music — Divine & Earthly</h3>
-        <p class="card-text">Two classical traditions dominate: Hindustani (North) with its ragas and seasonal
-          compositions, and Carnatic (South) with its mathematical precision and bhakti devotion. Folk music ranges from
-          Punjabi Bhangra to Rajasthani Manganiyar to Kerala's Sopanam — an infinite sonic spectrum.</p>
+
+      <div class="culture-grid">
+        <article class="culture-card reveal" style="--reveal-delay: 0.04s;">
+          <div class="culture-card-top">
+            <span class="card-icon">🎭</span>
+            <span class="culture-card-kicker">Performance</span>
+          </div>
+          <h3 class="card-title">Classical Dance Forms</h3>
+          <p class="card-text">Bharatanatyam, Kathak, Odissi, Kuchipudi, Manipuri, Mohiniyattam, Kathakali, and Sattriya each turn devotion, storytelling, and discipline into movement.</p>
+          <div class="culture-card-foot">Sacred gestures, rhythm, and narrative in motion</div>
+        </article>
+
+        <article class="culture-card reveal" style="--reveal-delay: 0.08s;">
+          <div class="culture-card-top">
+            <span class="card-icon">🎵</span>
+            <span class="culture-card-kicker">Sound</span>
+          </div>
+          <h3 class="card-title">Music and Oral Traditions</h3>
+          <p class="card-text">Hindustani and Carnatic music anchor the classical world, while folk forms from Bhangra to Manganiyar and Sopanam keep the regional voice alive.</p>
+          <div class="culture-card-foot">Ragas, rhythms, and living performance traditions</div>
+        </article>
+
+        <article class="culture-card reveal" style="--reveal-delay: 0.12s;">
+          <div class="culture-card-top">
+            <span class="card-icon">👘</span>
+            <span class="culture-card-kicker">Weave</span>
+          </div>
+          <h3 class="card-title">Textiles and Dress</h3>
+          <p class="card-text">Banarasi silk, Kanjivaram, Pashmina, Bandhani, and Kantha show how cloth can carry geography, craft, and identity in every fold.</p>
+          <div class="culture-card-foot">Handmade textures with regional signatures</div>
+        </article>
+
+        <article class="culture-card reveal" style="--reveal-delay: 0.16s;">
+          <div class="culture-card-top">
+            <span class="card-icon">🪔</span>
+            <span class="culture-card-kicker">Ritual</span>
+          </div>
+          <h3 class="card-title">Festivals and Ritual Cycles</h3>
+          <p class="card-text">Diwali, Holi, Onam, Durga Puja, and countless regional observances turn the calendar into a shared cultural map of harvests, faith, and renewal.</p>
+          <div class="culture-card-foot">Seasonal celebrations that bind communities</div>
+        </article>
+
+        <article class="culture-card reveal" style="--reveal-delay: 0.20s;">
+          <div class="culture-card-top">
+            <span class="card-icon">🕉️</span>
+            <span class="culture-card-kicker">Wisdom</span>
+          </div>
+          <h3 class="card-title">Spirituality and Philosophy</h3>
+          <p class="card-text">Ahimsa, Karma, Dharma, Yoga, and Meditation reflect a long inquiry into ethics, consciousness, and the good life.</p>
+          <div class="culture-card-foot">Ideas that shaped global spiritual thought</div>
+        </article>
+
+        <article class="culture-card reveal" style="--reveal-delay: 0.24s;">
+          <div class="culture-card-top">
+            <span class="card-icon">🎨</span>
+            <span class="culture-card-kicker">Art</span>
+          </div>
+          <h3 class="card-title">Art, Craft, and Handwork</h3>
+          <p class="card-text">From Bhimbetka cave paintings to Warli, Madhubani, Mughal miniatures, and contemporary sculpture, Indian art keeps storytelling at its core.</p>
+          <div class="culture-card-foot">Narrative-driven visual traditions across eras</div>
+        </article>
+
+        <article class="culture-card reveal" style="--reveal-delay: 0.28s;">
+          <div class="culture-card-top">
+            <span class="card-icon">🍛</span>
+            <span class="culture-card-kicker">Taste</span>
+          </div>
+          <h3 class="card-title">Food and Hospitality</h3>
+          <p class="card-text">Atithi Devo Bhava, shared meals, thalis, and regional cuisine make hospitality a social value, not just a custom.</p>
+          <div class="culture-card-foot">Cooking as memory, comfort, and welcome</div>
+        </article>
+
+        <article class="culture-card reveal" style="--reveal-delay: 0.32s;">
+          <div class="culture-card-top">
+            <span class="card-icon">📜</span>
+            <span class="culture-card-kicker">Voice</span>
+          </div>
+          <h3 class="card-title">Languages and Storytelling</h3>
+          <p class="card-text">Languages, epics, folklore, and local idioms preserve memory and keep culture adaptable across regions and generations.</p>
+          <div class="culture-card-foot">Oral history that keeps communities connected</div>
+        </article>
       </div>
-      <div class="culture-card">
-        <span class="card-icon">👘</span>
-        <h3 class="card-title">Textiles & Dress</h3>
-        <p class="card-text">India's textile legacy is unmatched — Banarasi silk weaving (2,000+ years old), Kanjivaram
-          silk from Tamil Nadu, Pashmina from Kashmir, Bandhani tie-dye from Gujarat, and Kantha embroidery from Bengal.
-          The saree — with over 80 draping styles — is perhaps humanity's most elegant garment.</p>
-      </div>
-      <div class="culture-card">
-        <span class="card-icon">🕉️</span>
-        <h3 class="card-title">Spirituality & Philosophy</h3>
-        <p class="card-text">Four major world religions were born in India — Hinduism, Buddhism, Jainism, and Sikhism.
-          Concepts like Ahimsa (non-violence), Karma, Dharma, Yoga, and Meditation originate here. India has always been
-          a land where seekers of truth converge from across the world.</p>
-      </div>
-      <div class="culture-card">
-        <span class="card-icon">🎨</span>
-        <h3 class="card-title">Art & Painting</h3>
-        <p class="card-text">From the 30,000-year-old cave paintings at Bhimbetka to the intricate Mughal miniatures,
-          from the tribal art of Warli and Madhubani to the vibrant canvases of Raja Ravi Varma — Indian art spans
-          millennia of unbroken creative expression, always rooted in narrative and meaning.</p>
-      </div>
-      <div class="culture-card">
-        <span class="card-icon">🏠</span>
-        <h3 class="card-title">Family & Social Values</h3>
-        <p class="card-text">The joint family system, reverence for elders, hospitality (Atithi Devo Bhava — "Guest is
-          God"), and seasonal rituals rooted in agricultural cycles define Indian social life. Community celebrations,
-          shared meals, and oral traditions bind generations across vast geographic diversity.</p>
+
+      <div class="culture-ribbon reveal" style="--reveal-delay: 0.38s;">
+        <div>Languages carry memory.</div>
+        <div>Rituals mark time.</div>
+        <div>Craft keeps hands wise.</div>
+        <div>Music keeps communities together.</div>
       </div>
     </div>
   </section>
 
   <!-- ARCHITECTURE -->
-  <section id="architecture">
-    <p class="section-label">✦ Stones That Speak ✦</p>
-    <h2 class="section-title">Art & Architecture</h2>
-    <div class="section-divider"></div>
-    <p class="section-intro">Indian architecture is not just construction — it is cosmology made visible, devotion made
-      tangible, and civilization made permanent.</p>
+  <section id="architecture" class="architecture-section">
+    <div class="architecture-ambient" aria-hidden="true"></div>
+    <div class="architecture-wrap">
+      <div class="architecture-head reveal" style="--reveal-delay: 0s;">
+        <p class="section-label section-label-light">✦ Stones That Speak ✦</p>
+        <h2 class="section-title">Art & Architecture</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro architecture-intro">Indian architecture is not just construction — it is cosmology made visible, devotion made tangible, and civilization made permanent.</p>
+      </div>
 
-    <div class="arch-showcase reveal">
-      <div class="arch-visual">
-        <div class="arch-visual-inner">
-          <span class="emoji">🕌</span>
-          <div class="label">Taj Mahal</div>
-          <div class="sublabel">Agra, Uttar Pradesh · 1632 CE</div>
+      <div class="architecture-spotlight reveal" style="--reveal-delay: 0.08s;">
+        <div class="architecture-monument">
+          <div class="architecture-monument-frame">
+            <span class="architecture-monument-icon" id="architectureIcon">🕌</span>
+            <div class="architecture-monument-label" id="architectureLabel">Taj Mahal</div>
+            <div class="architecture-monument-meta" id="architectureMeta">Agra, Uttar Pradesh · 1632 CE</div>
+          </div>
+          <div class="architecture-meter">
+            <span id="architectureMetric1">22 years</span>
+            <span id="architectureMetric2">20,000 artisans</span>
+            <span id="architectureMetric3">28 inlaid stones</span>
+          </div>
+        </div>
+
+        <div class="architecture-story">
+          <p class="architecture-kicker" id="architectureKicker">Mughal precision, poetic scale</p>
+          <h3 id="architectureTitle">The Crown of Palaces</h3>
+          <p id="architectureSummary">Built by Emperor Shah Jahan as an eternal testament to love for Mumtaz Mahal, the Taj Mahal stands as India’s most celebrated monument. Its translucent Makrana marble shifts through the day like a living surface of light.</p>
+          <p id="architectureDetail">Over 20,000 artisans labored for 22 years (1632–1653), blending Persian, Islamic, and Hindu traditions. Perfect symmetry, pietra dura inlay, and the reflective garden create an architectural experience that still feels almost unreal.</p>
+          <div class="arch-tags" id="architectureTags">
+            <span class="arch-tag">UNESCO World Heritage</span>
+            <span class="arch-tag">Mughal Architecture</span>
+            <span class="arch-tag">World Wonder</span>
+            <span class="arch-tag">Symbol of Love</span>
+          </div>
         </div>
       </div>
-      <div class="arch-info">
-        <h3>The Crown of Palaces</h3>
-        <p>Built by Emperor Shah Jahan as an eternal testament to love for his beloved Mumtaz Mahal, the Taj Mahal
-          stands as the world's most celebrated monument. Constructed from translucent Makrana marble that shifts from
-          pink at dawn to milky white at noon to golden under moonlight.</p>
-        <p>Over 20,000 artisans labored for 22 years (1632–1653), drawing from Persian, Islamic, and Hindu traditions.
-          Its perfect symmetry, intricate pietra dura inlay work with 28 precious stones, and the reflecting pool create
-          an experience that transcends architecture into pure poetry.</p>
-        <div class="arch-tags">
-          <span class="arch-tag">UNESCO World Heritage</span>
-          <span class="arch-tag">Mughal Architecture</span>
-          <span class="arch-tag">7 Wonders of the World</span>
-          <span class="arch-tag">Symbol of Love</span>
-        </div>
-      </div>
-    </div>
 
-    <div class="arch-mini-grid reveal">
-      <div class="arch-mini">
-        <span class="mini-icon">🏯</span>
-        <h4>Rajput Forts</h4>
-        <p>Amber, Mehrangarh, Chittorgarh — medieval citadels of war, artistry, and royal life carved into Rajasthan's
-          rugged landscape.</p>
+      <div class="architecture-grid">
+        <article class="arch-mini reveal active" data-architecture="taj" style="--reveal-delay: 0.12s;">
+          <span class="mini-icon">🕌</span>
+          <h4>Taj Mahal</h4>
+          <p>Makrana marble, perfect symmetry, garden geometry, and luminous inlay make the monument feel almost weightless.</p>
+        </article>
+        <article class="arch-mini reveal" data-architecture="forts" style="--reveal-delay: 0.16s;">
+          <span class="mini-icon">🏯</span>
+          <h4>Rajput Forts</h4>
+          <p>Amber, Mehrangarh, and Chittorgarh formed fortified worlds of defense, courtly life, and dramatic hilltop presence across Rajasthan.</p>
+        </article>
+        <article class="arch-mini reveal" data-architecture="temples" style="--reveal-delay: 0.20s;">
+          <span class="mini-icon">🛕</span>
+          <h4>Dravidian Temples</h4>
+          <p>Madurai Meenakshi and Thanjavur Brihadeeswarar rise with granite gopurams, sacred geometry, and rhythmic sculptural density.</p>
+        </article>
+        <article class="arch-mini reveal" data-architecture="caves" style="--reveal-delay: 0.24s;">
+          <span class="mini-icon">⛩️</span>
+          <h4>Rock-Cut Caves</h4>
+          <p>Ajanta, Ellora, and Elephanta transformed living stone into temples and sanctuaries where sculpture and architecture merge.</p>
+        </article>
+        <article class="arch-mini reveal" data-architecture="stepwells" style="--reveal-delay: 0.28s;">
+          <span class="mini-icon">🏛️</span>
+          <h4>Stepwells</h4>
+          <p>Rani ki Vav is both utility and ornament, a subterranean monument where water management becomes ritual and art.</p>
+        </article>
       </div>
-      <div class="arch-mini">
-        <span class="mini-icon">🛕</span>
-        <h4>Dravidian Temples</h4>
-        <p>The towering gopurams of Madurai Meenakshi and Thanjavur Brihadeeswarar — South India's sky-piercing granite
-          devotion.</p>
-      </div>
-      <div class="arch-mini">
-        <span class="mini-icon">⛩️</span>
-        <h4>Rock-Cut Caves</h4>
-        <p>Ajanta, Ellora, Elephanta — Buddhist, Hindu, and Jain masterpieces carved directly from living rock over
-          centuries.</p>
-      </div>
-      <div class="arch-mini">
-        <span class="mini-icon">🏛️</span>
-        <h4>Stepwells (Vav)</h4>
-        <p>Gujarat's Rani ki Vav — a subterranean cathedral of water, with 500 intricate sculptures descending seven
-          stories below earth.</p>
+
+      <div class="architecture-band reveal" style="--reveal-delay: 0.28s;">
+        <div>
+          <span>Material</span>
+          <strong>Sandstone, marble, granite, and carved brick</strong>
+        </div>
+        <div>
+          <span>Logic</span>
+          <strong>Geometry, symmetry, and celestial alignment</strong>
+        </div>
+        <div>
+          <span>Spirit</span>
+          <strong>Temples, tombs, forts, and water as sacred design</strong>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FESTIVALS -->
-  <section id="festivals">
-    <p class="section-label" style="color: var(--gold);">✦ The Calendar of Joy ✦</p>
-    <h2 class="section-title">Festivals of India</h2>
-    <div class="section-divider"></div>
-    <p class="section-intro">In India, every season, every moon, every harvest is a reason for celebration. With 30+
-      major festivals, India is perpetually in festivity.</p>
+  <section id="festivals" class="festivals-section">
+    <div class="festivals-ambient" aria-hidden="true"></div>
+    <div class="festivals-wrap">
+      <div class="festivals-head reveal" style="--reveal-delay: 0s;">
+        <p class="section-label section-label-light">✦ The Calendar of Joy ✦</p>
+        <h2 class="section-title">Festivals of India</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro festivals-intro">In India, celebration follows the seasons, the moon, and the harvest. Festivals are not just events on a calendar; they are public memory, social glue, and shared renewal.</p>
+      </div>
 
-    <div class="festivals-row reveal">
-      <div class="fest-card f1">
-        <div class="fest-card-bg"></div>
-        <span class="fest-icon">🪔</span>
-        <h3 class="fest-name">Diwali</h3>
-        <p class="fest-region">Pan-India · October–November</p>
-        <p class="fest-desc">The Festival of Lights. Millions of clay lamps (diyas) illuminate homes and hearts on the
-          darkest night of autumn. Celebrates Lord Rama's return, the triumph of light over darkness, knowledge over
-          ignorance, and good over evil.</p>
+      <div class="festivals-layout">
+        <aside class="festivals-rail reveal" style="--reveal-delay: 0.08s;">
+          <div class="festivals-wheel">
+            <span class="festivals-wheel-kicker">Seasonal cycle</span>
+            <div class="festivals-wheel-ring" aria-hidden="true">
+              <span>Spring</span>
+              <span>Summer</span>
+              <span>Monsoon</span>
+              <span>Winter</span>
+            </div>
+            <strong>1 calendar, many ways to gather</strong>
+            <p>From temple lamps to harvest feasts, the year in India is built around collective moments of gratitude, color, and community.</p>
+          </div>
+
+          <div class="festivals-rail-card">
+            <span>30+</span>
+            <div>
+              <h4>Major festivals</h4>
+              <p>Celebrations range from local village rituals to nationwide observances that shape the cultural imagination.</p>
+            </div>
+          </div>
+          <div class="festivals-rail-card">
+            <span>4</span>
+            <div>
+              <h4>Seasonal moods</h4>
+              <p>Light, color, harvest, and devotion each anchor a different part of the festival year.</p>
+            </div>
+          </div>
+          <div class="festivals-rail-quote">"A festival in India is lived, cooked, sung, and carried from one home to the next."</div>
+        </aside>
+
+        <article class="festivals-feature reveal" style="--reveal-delay: 0.14s;">
+          <p class="festivals-kicker">Shared joy, seasonal memory</p>
+          <h3>India’s festivals turn faith into public life and public life into color, food, music, and belonging.</h3>
+          <p>From lamps at Diwali to colors at Holi, from harvest feasts in Kerala to grand pandals in Kolkata, celebrations bring neighborhoods, families, and generations together.</p>
+          <div class="festivals-feature-grid">
+            <div>
+              <strong>Light</strong>
+              <span>Hope, renewal, and return</span>
+            </div>
+            <div>
+              <strong>Color</strong>
+              <span>Public joy made visible</span>
+            </div>
+            <div>
+              <strong>Feast</strong>
+              <span>Food as a social ritual</span>
+            </div>
+            <div>
+              <strong>Rhythm</strong>
+              <span>Music, drums, and prayer</span>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="fest-card f2">
-        <div class="fest-card-bg"></div>
-        <span class="fest-icon">🌈</span>
-        <h3 class="fest-name">Holi</h3>
-        <p class="fest-region">North India · February–March</p>
-        <p class="fest-desc">The Festival of Colors. Streets transform into living paintings as people shower each other
-          with vibrant powder and water. Heralds spring, celebrates the eternal love of Radha-Krishna, and the victory
-          of devotion over pride.</p>
-      </div>
-      <div class="fest-card f3">
-        <div class="fest-card-bg"></div>
-        <span class="fest-icon">🥁</span>
-        <h3 class="fest-name">Durga Puja</h3>
-        <p class="fest-region">West Bengal · September–October</p>
-        <p class="fest-desc">Kolkata transforms into the world's largest open-air art gallery. Elaborate clay idols of
-          Goddess Durga are worshipped for 10 days with music, dance, and communal feasting — a UNESCO Intangible
-          Cultural Heritage.</p>
-      </div>
-      <div class="fest-card f4">
-        <div class="fest-card-bg"></div>
-        <span class="fest-icon">🐘</span>
-        <h3 class="fest-name">Onam</h3>
-        <p class="fest-region">Kerala · August–September</p>
-        <p class="fest-desc">Kerala's harvest festival of 10 days — featuring the spectacular Pookalam (flower carpet),
-          Vallam Kali (snake boat races), classical Kathakali performances, and feasts on banana leaves with 26
-          traditional dishes.</p>
+
+      <div class="festivals-stream">
+        <article class="fest-card festival-wide festival-a reveal" style="--reveal-delay: 0.04s;">
+          <span class="fest-icon">🪔</span>
+          <h3 class="fest-name">Diwali</h3>
+          <p class="fest-region">Pan-India · October–November</p>
+          <p class="fest-desc">The Festival of Lights. Diyas brighten homes and streets while families celebrate return, renewal, and the victory of light over darkness.</p>
+        </article>
+        <article class="fest-card festival-tall festival-b reveal" style="--reveal-delay: 0.08s;">
+          <span class="fest-icon">🌈</span>
+          <h3 class="fest-name">Holi</h3>
+          <p class="fest-region">North India · February–March</p>
+          <p class="fest-desc">The Festival of Colors. Powder, water, and music transform cities and villages into living canvases of spring, joy, and togetherness.</p>
+        </article>
+        <article class="fest-card festival-c reveal" style="--reveal-delay: 0.12s;">
+          <span class="fest-icon">🥁</span>
+          <h3 class="fest-name">Durga Puja</h3>
+          <p class="fest-region">West Bengal · September–October</p>
+          <p class="fest-desc">An extraordinary mix of devotion, sculpture, food, and city-scale creativity that turns Kolkata into a glowing cultural landscape.</p>
+        </article>
+        <article class="fest-card festival-d reveal" style="--reveal-delay: 0.16s;">
+          <span class="fest-icon">🐘</span>
+          <h3 class="fest-name">Onam</h3>
+          <p class="fest-region">Kerala · August–September</p>
+          <p class="fest-desc">Kerala’s harvest festival pairs flower carpets, boat races, and feasts on banana leaves with classical performance and community pride.</p>
+        </article>
+        <article class="fest-card festival-e reveal" style="--reveal-delay: 0.20s;">
+          <span class="fest-icon">🌾</span>
+          <h3 class="fest-name">Pongal</h3>
+          <p class="fest-region">Tamil Nadu · January</p>
+          <p class="fest-desc">A harvest thanksgiving rooted in agrarian life, marked by sweet rice, decorated homes, and reverence for the sun and cattle.</p>
+        </article>
+        <article class="fest-card festival-f reveal" style="--reveal-delay: 0.24s;">
+          <span class="fest-icon">🕌</span>
+          <h3 class="fest-name">Eid & Christmas</h3>
+          <p class="fest-region">Pan-India · Annual</p>
+          <p class="fest-desc">Shared meals, prayer, and community gatherings remind the country that celebration in India is both diverse and connected.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- CUISINE -->
-  <section id="cuisine">
-    <p class="section-label">✦ A Feast for the Senses ✦</p>
-    <h2 class="section-title">The Flavors of India</h2>
-    <div class="section-divider"></div>
-    <p class="section-intro">Indian cuisine is not a cuisine — it is thousands of cuisines shaped by geography,
-      religion, season, and six thousand years of culinary evolution.</p>
-
-    <div class="cuisine-layout">
-      <div class="cuisine-intro-box reveal">
-        <h3>Six Tastes, Infinite Traditions</h3>
-        <p>Ayurveda describes six tastes — Sweet, Sour, Salty, Pungent, Bitter, and Astringent — and Indian cooking is
-          the world's most sophisticated system for balancing all six in every meal.</p>
-        <p>Each region tells its story through spice, technique, and ingredient.</p>
-        <div class="cuisine-regions">
-          <div class="cuisine-region-tag"><span>🌾</span> North India — Rich gravies, tandoor bread</div>
-          <div class="cuisine-region-tag"><span>🌴</span> South India — Rice, coconut, tamarind</div>
-          <div class="cuisine-region-tag"><span>🌊</span> Coastal India — Seafood, coconut milk</div>
-          <div class="cuisine-region-tag"><span>🌶️</span> East India — Mustard oil, fish, sweets</div>
-          <div class="cuisine-region-tag"><span>🫙</span> West India — Tangy, sweet-spicy balance</div>
-        </div>
+  <section id="cuisine" class="cuisine-section">
+    <div class="cuisine-wrap">
+      <div class="cuisine-head reveal" style="--reveal-delay: 0s;">
+        <p class="section-label">✦ A Feast for the Senses ✦</p>
+        <h2 class="section-title">The Flavors of India</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">Indian cuisine is not one cuisine. It is thousands of regional grammars of taste shaped by climate, season, faith, and memory.</p>
       </div>
-      <div class="dish-grid reveal">
-        <div class="dish-card">
-          <span class="dish-icon">🍛</span>
-          <h3 class="dish-name">Biryani</h3>
-          <p class="dish-origin">Hyderabad / Lucknow</p>
-          <p class="dish-desc">Fragrant basmati rice slow-cooked in a sealed pot (dum) with marinated meat, saffron, and
-            whole spices. A Mughal gift to India, now claimed and perfected by every city.</p>
-        </div>
-        <div class="dish-card">
-          <span class="dish-icon">🫓</span>
-          <h3 class="dish-name">Masala Dosa</h3>
-          <p class="dish-origin">Karnataka / Tamil Nadu</p>
-          <p class="dish-desc">Crisp, paper-thin rice-lentil crêpe filled with spiced potato, served with coconut
-            chutney and sambar. A breakfast that has conquered the world from South Indian kitchens.</p>
-        </div>
-        <div class="dish-card">
-          <span class="dish-icon">🍲</span>
-          <h3 class="dish-name">Dal Makhani</h3>
-          <p class="dish-origin">Punjab</p>
-          <p class="dish-desc">Black lentils slow-cooked overnight with tomatoes, cream, and butter — Punjabi warmth in
-            a bowl. Born in the dhabas (roadside kitchens) of the wheat belt, now on Michelin-starred menus.</p>
-        </div>
-        <div class="dish-card">
-          <span class="dish-icon">🍮</span>
-          <h3 class="dish-name">Rasgulla</h3>
-          <p class="dish-origin">West Bengal / Odisha</p>
-          <p class="dish-desc">Pillowy spheres of fresh chenna (cottage cheese) simmered in light sugar syrup —
-            delicate, airy, and ephemeral. A Bengali sweet that sparked a historical debate over its origins.</p>
-        </div>
-        <div class="dish-card">
-          <span class="dish-icon">🌮</span>
-          <h3 class="dish-name">Rogan Josh</h3>
-          <p class="dish-origin">Kashmir</p>
-          <p class="dish-desc">Aromatic lamb braised in Kashmiri red chillies, whole spices, and yogurt — a Wazwan
-            tradition that transforms meat into a meditation on spice, patience, and mountain air.</p>
-        </div>
-        <div class="dish-card">
-          <span class="dish-icon">🥘</span>
-          <h3 class="dish-name">Dhokla & Thepla</h3>
-          <p class="dish-origin">Gujarat</p>
-          <p class="dish-desc">Gujarat's genius for vegetarian cooking — fermented chickpea cakes steamed to pillowy
-            lightness (dhokla) and spiced flatbreads rolled thin (thepla). Simple, nourishing, and endlessly satisfying.
-          </p>
+
+      <div class="cuisine-stage">
+        <article class="cuisine-atlas reveal" style="--reveal-delay: 0.08s;">
+          <p class="cuisine-kicker">Six tastes, infinite traditions</p>
+          <h3>A meal in India is balance, not excess.</h3>
+          <p>Ayurveda describes six tastes: sweet, sour, salty, pungent, bitter, and astringent. Regional kitchens build depth by layering spice, texture, and seasonal produce around this logic.</p>
+          <div class="cuisine-taste-grid">
+            <button type="button" data-taste="sweet">Sweet</button>
+            <button type="button" data-taste="sour">Sour</button>
+            <button type="button" data-taste="salty">Salty</button>
+            <button type="button" data-taste="pungent">Pungent</button>
+            <button type="button" data-taste="bitter">Bitter</button>
+            <button type="button" data-taste="astringent">Astringent</button>
+          </div>
+          <div class="cuisine-region-list">
+            <div><strong>North</strong><span>Rich gravies, tandoor breads</span></div>
+            <div><strong>South</strong><span>Rice, coconut, tamarind</span></div>
+            <div><strong>Coastal</strong><span>Seafood, curry leaves, coconut milk</span></div>
+            <div><strong>East</strong><span>Mustard oil, fish, sweets</span></div>
+            <div><strong>West</strong><span>Tangy, sweet-spicy balance</span></div>
+          </div>
+        </article>
+
+        <div class="cuisine-showcase">
+          <article class="cuisine-feature reveal" style="--reveal-delay: 0.14s;">
+            <span class="cuisine-feature-icon">🍽️</span>
+            <div>
+              <p class="cuisine-kicker">From street stalls to royal kitchens</p>
+              <h3>Every region tells its story through spice.</h3>
+              <p>Slow-cooked dals, fermented batters, clay-oven breads, and festive sweets all reflect local climate and community tradition. Technique is heritage, and every dish carries geography.</p>
+            </div>
+          </article>
+
+          <div class="dish-grid reveal" style="--reveal-delay: 0.2s;">
+            <div class="dish-card dish-wide" data-tastes="salty pungent">
+              <span class="dish-icon">🍛</span>
+              <h3 class="dish-name">Biryani</h3>
+              <p class="dish-origin">Hyderabad / Lucknow</p>
+              <p class="dish-desc">Fragrant basmati rice slow-cooked in a sealed pot with marinated meat, saffron, and whole spices.</p>
+            </div>
+            <div class="dish-card" data-tastes="sour salty pungent">
+              <span class="dish-icon">🫓</span>
+              <h3 class="dish-name">Masala Dosa</h3>
+              <p class="dish-origin">Karnataka / Tamil Nadu</p>
+              <p class="dish-desc">Crisp fermented rice-lentil crepe with potato masala, chutney, and sambar.</p>
+            </div>
+            <div class="dish-card" data-tastes="salty pungent">
+              <span class="dish-icon">🍲</span>
+              <h3 class="dish-name">Dal Makhani</h3>
+              <p class="dish-origin">Punjab</p>
+              <p class="dish-desc">Black lentils cooked low and slow with butter and cream for deep, smoky comfort.</p>
+            </div>
+            <div class="dish-card" data-tastes="sweet">
+              <span class="dish-icon">🍮</span>
+              <h3 class="dish-name">Rasgulla</h3>
+              <p class="dish-origin">West Bengal / Odisha</p>
+              <p class="dish-desc">Soft chenna dumplings simmered in light syrup, delicate and airy in texture.</p>
+            </div>
+            <div class="dish-card dish-wide" data-tastes="sour salty pungent">
+              <span class="dish-icon">🌮</span>
+              <h3 class="dish-name">Rogan Josh & Dhokla</h3>
+              <p class="dish-origin">Kashmir / Gujarat</p>
+              <p class="dish-desc">From aromatic meat gravies to fermented vegetarian staples, India’s table spans powerful contrasts with equal mastery.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -483,20 +729,41 @@
 
   <!-- STATES -->
   <section id="states">
-    <p class="section-label">✦ A Nation of Nations ✦</p>
-    <h2 class="section-title">The States & Union Territories of India</h2>
-    <div class="section-divider"></div>
-    <p class="section-intro">India is divided into 28 states and 8 Union Territories, each with distinct languages, cuisines, traditions, and heritage. Explore the rich diversity that makes India unique.</p>
+    <div class="states-atlas">
+      <div class="states-intro-panel reveal">
+        <p class="section-label">✦ A Nation of Nations ✦</p>
+        <h2 class="section-title">The States & Union Territories of India</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">India is divided into 28 states and 8 Union Territories, each with distinct languages, cuisines, traditions, and heritage. Explore the rich diversity that makes India unique.</p>
+      </div>
 
-    <div class="states-search-wrap reveal">
-      <label class="states-search-label" for="stateSearch">Find a state or territory</label>
-      <input type="text" id="stateSearch" class="states-search-input" placeholder="Search by state or capital..."
-        aria-label="Search states by name or capital">
-      <p id="stateSearchEmpty" class="states-search-empty" hidden>No matching state found.</p>
+      <div class="states-tools reveal" style="--reveal-delay: 0.1s;">
+        <div class="states-stats">
+          <div class="states-stat">
+            <span class="states-stat-number">28</span>
+            <span class="states-stat-label">States</span>
+          </div>
+          <div class="states-stat">
+            <span class="states-stat-number">8</span>
+            <span class="states-stat-label">Union Territories</span>
+          </div>
+          <div class="states-stat">
+            <span class="states-stat-number">36</span>
+            <span class="states-stat-label">Travel stories</span>
+          </div>
+        </div>
+
+        <div class="states-search-wrap">
+          <label class="states-search-label" for="stateSearch">Find a state or territory</label>
+          <input type="text" id="stateSearch" class="states-search-input" placeholder="Search by state or capital..."
+            aria-label="Search states by name or capital">
+          <p id="stateSearchEmpty" class="states-search-empty" hidden>No matching state found.</p>
+        </div>
+      </div>
     </div>
 
     <!-- STATES -->
-    <h3 style="font-family: 'Yatra One', serif; color: var(--maroon); text-align: center; margin-top: 50px; margin-bottom: 30px; font-size: 24px;">28 States</h3>
+    <h3 class="states-group-heading">28 States</h3>
     <div class="states-grid reveal">
       <div class="state-tile"><span class="state-emoji">🕍</span>
         <div class="state-name">Andhra Pradesh</div>
@@ -617,7 +884,7 @@
     </div>
 
     <!-- UNION TERRITORIES -->
-    <h3 style="font-family: 'Yatra One', serif; color: var(--maroon); text-align: center; margin-top: 60px; margin-bottom: 30px; font-size: 24px;">8 Union Territories</h3>
+    <h3 class="states-group-heading">8 Union Territories</h3>
     <div class="states-grid reveal">
       <div class="state-tile"><span class="state-emoji">⛪</span>
         <div class="state-name">Andaman & Nicobar Islands</div>
@@ -652,87 +919,115 @@
 
   <!-- PHILOSOPHY -->
   <section id="philosophy">
-    <p class="section-label" style="color: var(--gold);">✦ Words of the Ages ✦</p>
-    <h2 class="section-title" style="color: var(--ivory);">Wisdom of India</h2>
-    <div class="section-divider"></div>
-    <p class="section-intro" style="color: rgba(245,230,200,0.6);">India's greatest contribution to humanity may be its
-      philosophy — a living tradition of inquiry into truth, consciousness, and the good life.</p>
+    <div class="philosophy-wrap">
+      <div class="philosophy-head">
+        <p class="section-label">✦ Words of the Ages ✦</p>
+        <h2 class="section-title">Wisdom of India</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">India's greatest contribution to humanity may be its philosophy: a living tradition of
+          inquiry into truth, consciousness, compassion, and the good life.</p>
+      </div>
 
-    <div class="quote-grid reveal">
-      <div class="quote-card">
-        <p class="quote-text">Ahimsa Paramo Dharma — Non-violence is the highest moral virtue. All life is sacred, and
-          the measure of civilization is its compassion toward every creature.</p>
-        <p class="quote-source">✦ The Mahabharata</p>
+      <div class="philosophy-layout reveal">
+        <article class="wisdom-panel">
+          <p class="wisdom-kicker">Living inquiry</p>
+          <h3>From the self to the universe, wisdom is practiced as a way of life.</h3>
+          <p>The Upanishads, Jain and Buddhist teachings, Bhakti poetry, Sikh thought, and modern reformers all ask the
+            same essential question in different voices: how should a human being live with truth, duty, freedom, and
+            care?</p>
+          <div class="wisdom-mantra">
+            <button type="button" data-wisdom="truth">Satyam</button>
+            <button type="button" data-wisdom="duty">Dharma</button>
+            <button type="button" data-wisdom="compassion">Karuna</button>
+          </div>
+        </article>
+
+        <div class="wisdom-principles">
+          <article class="principle-card active" data-wisdom="truth">
+            <span class="principle-number">01</span>
+            <h3>Truth</h3>
+            <p>A search for what is real, beyond appearances, habit, and fear.</p>
+          </article>
+          <article class="principle-card" data-wisdom="duty">
+            <span class="principle-number">02</span>
+            <h3>Duty</h3>
+            <p>Dharma frames action as responsibility to self, society, nature, and time.</p>
+          </article>
+          <article class="principle-card" data-wisdom="compassion">
+            <span class="principle-number">03</span>
+            <h3>Compassion</h3>
+            <p>Ahimsa turns wisdom outward, making non-violence an everyday ethic.</p>
+          </article>
+          <article class="principle-card" data-wisdom="unity">
+            <span class="principle-number">04</span>
+            <h3>Unity</h3>
+            <p>Vasudhaiva Kutumbakam imagines the world as one interdependent family.</p>
+          </article>
+        </div>
       </div>
-      <div class="quote-card">
-        <p class="quote-text">Vasudhaiva Kutumbakam — The whole world is one family. India's ancient insight that no
-          border can contain the brotherhood of all humankind.</p>
-        <p class="quote-source">✦ Maha Upanishad</p>
-      </div>
-      <div class="quote-card">
-        <p class="quote-text">Satyam Shivam Sundaram — Truth is God, God is Beauty. The Vedic trinity that unites
-          philosophy, spirituality, and aesthetics into one vision of the divine.</p>
-        <p class="quote-source">✦ Vedic Philosophy</p>
-      </div>
-      <div class="quote-card">
-        <p class="quote-text">Live as if you were to die tomorrow. Learn as if you were to live forever. Wisdom as
-          practical as it is timeless — Gandhi's compass for a purposeful life.</p>
-        <p class="quote-source">✦ Mahatma Gandhi</p>
-      </div>
-      <div class="quote-card">
-        <p class="quote-text">India is the cradle of the human race, the birthplace of human speech, the mother of
-          history, the grandmother of legend, and the great-grandmother of tradition.</p>
-        <p class="quote-source">✦ Mark Twain</p>
-      </div>
-      <div class="quote-card">
-        <p class="quote-text">We owe a lot to the Indians who taught us how to count, without which no worthwhile
-          scientific discovery could have been made. — Albert Einstein, on India's contribution to mathematics.</p>
-        <p class="quote-source">✦ Albert Einstein</p>
+
+      <div class="quote-grid reveal" style="--reveal-delay: 0.15s;">
+        <div class="quote-card quote-feature">
+          <p class="quote-text" id="wisdomQuoteText">Ahimsa Paramo Dharma. Non-violence is the highest moral virtue; the measure of
+            civilization is its compassion toward all life.</p>
+          <p class="quote-source" id="wisdomQuoteSource">The Mahabharata</p>
+        </div>
+        <div class="quote-card">
+          <p class="quote-text">Vasudhaiva Kutumbakam. No border can contain the brotherhood of humankind when the world
+            is seen as one family.</p>
+          <p class="quote-source">Maha Upanishad</p>
+        </div>
+        <div class="quote-card">
+          <p class="quote-text">Satyam Shivam Sundaram unites truth, the divine, and beauty into one vision of
+            meaningful existence.</p>
+          <p class="quote-source">Vedic Philosophy</p>
+        </div>
+        <div class="quote-card">
+          <p class="quote-text">Live as if you were to die tomorrow. Learn as if you were to live forever.</p>
+          <p class="quote-source">Mahatma Gandhi</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <h3>भारत Bharat</h3>
-        <p>An exploration of India's 5,000-year civilization — its history, art, philosophy, and the living traditions
-          that make it one of humanity's most extraordinary stories.</p>
+    <div class="footer-wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>भारत Bharat</h3>
+          <p>An exploration of India's 5,000-year civilization: its history, art, philosophy, regional identities, and
+            the living traditions that continue to shape everyday life.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#history">History</a></li>
+            <li><a href="#culture">Culture</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#festivals">Festivals</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Discover</h4>
+          <ul>
+            <li><a href="#cuisine">Cuisine</a></li>
+            <li><a href="#states">States</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#hero">Back to Top</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="#history">History</a></li>
-          <li><a href="#culture">Culture</a></li>
-          <li><a href="#architecture">Architecture</a></li>
-          <li><a href="#festivals">Festivals</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Discover</h4>
-        <ul>
-          <li><a href="#cuisine">Cuisine</a></li>
-          <li><a href="#states">States</a></li>
-          <li><a href="#philosophy">Philosophy</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Heritage</h4>
-        <ul>
-          <li><a href="#">UNESCO Sites</a></li>
-          <li><a href="#">Classical Arts</a></li>
-          <li><a href="#">Sacred Rivers</a></li>
-          <li><a href="#">Languages</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>Jai Hind · जय हिन्द · A Tribute to the Eternal Land</p>
-      <div class="footer-tricolor">
-        <div class="ftc ftc-s"></div>
-        <div class="ftc ftc-w"></div>
-        <div class="ftc ftc-g"></div>
+
+      <div class="footer-bottom">
+        <p>Jai Hind · जय हिन्द · A Tribute to the Eternal Land</p>
+        <div class="footer-tricolor" aria-hidden="true">
+          <div class="ftc ftc-s"></div>
+          <div class="ftc ftc-w"></div>
+          <div class="ftc ftc-g"></div>
+        </div>
       </div>
     </div>
   </footer>
