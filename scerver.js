@@ -152,6 +152,10 @@ app.post("/admin/login", async (req, res) => {
     const adminUsername = process.env.ADMIN_USERNAME;
     const adminPasswordPlain = process.env.ADMIN_PASSWORD;
 
+    if (!JWT_SECRET) {
+        return res.status(500).json({ error: "Server is missing JWT_SECRET" });
+    }
+
     if (!username || !password) {
         return res.status(400).json({ error: "Username and password are required" });
     }
