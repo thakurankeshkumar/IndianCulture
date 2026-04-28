@@ -10,49 +10,65 @@
         href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Lora:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/admin.css" />
-    
 </head>
 
-<body class="admin-bg">
+<body class="admin-bg login-bg">
     <div class="login-ambient" aria-hidden="true">
-        <span class="ambient-orb orb-1"></span>
-        <span class="ambient-orb orb-2"></span>
-        <span class="ambient-orb orb-3"></span>
+        <span class="ambient-line line-1"></span>
+        <span class="ambient-line line-2"></span>
+        <span class="ambient-grid"></span>
     </div>
 
     <main class="auth-shell login-shell">
         <section class="auth-intro">
+            <a class="auth-brand" href="/" aria-label="Go to Bharat home">
+                <span class="brand-mark">भ</span>
+                <span>
+                    <strong>Bharat</strong>
+                    <small>Culture Atlas</small>
+                </span>
+            </a>
             <p class="eyebrow">Bharat Management</p>
             <h1 class="auth-title">Admin Access</h1>
-            <p class="auth-copy">Secure control panel for updating state narratives, highlights, and travel
-                intelligence.</p>
+            <p class="auth-copy">Secure control panel for managing state profiles, cultural highlights, travel content,
+                and admin-only updates.</p>
             <ul class="auth-points">
                 <li class="auth-point">
-                    <strong>Session Security</strong>
-                    <span>Session based authentication</span>
+                    <span class="point-index">01</span>
+                    <div>
+                        <strong>Protected Session</strong>
+                        <span>JWT cookie based admin access</span>
+                    </div>
                 </li>
                 <li class="auth-point">
-                    <strong>Audit Visibility</strong>
-                    <span>Admin activity logging</span>
+                    <span class="point-index">02</span>
+                    <div>
+                        <strong>Database Updates</strong>
+                        <span>Direct edits to MongoDB state records</span>
+                    </div>
                 </li>
                 <li class="auth-point">
-                    <strong>Live Content Updates</strong>
-                    <span>Direct updates to state pages</span>
+                    <span class="point-index">03</span>
+                    <div>
+                        <strong>Live Public Pages</strong>
+                        <span>Saved content appears on dynamic state pages</span>
+                    </div>
                 </li>
             </ul>
         </section>
 
         <section class="auth-card">
-            <div class="auth-card-shine" aria-hidden="true"></div>
-            <p class="eyebrow">Admin Console</p>
-            <h2>Sign In</h2>
-            <p class="subline">Use your admin credentials to continue.</p>
+            <div class="auth-card-header">
+                <p class="eyebrow">Admin Console</p>
+                <h2>Sign In</h2>
+                <p class="subline">Use your admin credentials to continue.</p>
+            </div>
 
             <form id="adminLoginForm" class="auth-form">
                 <label class="auth-label">
                     <span>Username</span>
-                    <input id="username" name="username" type="text" autocomplete="username" placeholder="Enter admin username"
-                        required />
+                    <input id="username" name="username" type="text" autocomplete="username"
+                        placeholder="Enter admin username" required />
                 </label>
                 <label class="auth-label">
                     <span>Password</span>
@@ -63,7 +79,10 @@
             </form>
 
             <p id="authMessage" class="message" aria-live="polite"></p>
-            <a class="back-link" href="/">Back to Home</a>
+            <div class="auth-footer">
+                <span>Authorized users only</span>
+                <a class="back-link" href="/">Back to Home</a>
+            </div>
         </section>
     </main>
 
