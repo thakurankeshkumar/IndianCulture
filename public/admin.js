@@ -3,6 +3,10 @@ const stateForm = document.getElementById('stateForm');
 const formMessage = document.getElementById('formMessage');
 const adminIdentity = document.getElementById('adminIdentity');
 const logoutBtn = document.getElementById('logoutBtn');
+const saveToast = document.getElementById('saveToast');
+const saveToastTitle = document.getElementById('saveToastTitle');
+const saveToastText = document.getElementById('saveToastText');
+const saveToastClose = document.getElementById('saveToastClose');
 
 const fieldIds = [
   'stateId',
@@ -27,6 +31,7 @@ const fieldIds = [
 
 const fieldMap = Object.fromEntries(fieldIds.map((id) => [id, document.getElementById(id)]));
 let selectedStateId = null;
+let toastTimer = null;
 
 function escapeHtml(value) {
   return String(value ?? '')
@@ -40,6 +45,34 @@ function escapeHtml(value) {
 function setMessage(text, type = '') {
   formMessage.className = `message ${type}`.trim();
   formMessage.textContent = text;
+}
+
+function hideSaveToast() {
+  if (!saveToast) {
+    return;
+  }
+
+  saveToast.hidden = true;
+}
+
+function showSaveToast(title, text) {
+  if (!saveToast || !saveToastTitle || !saveToastText) {
+    return;
+  }
+
+  if (toastTimer) {
+    window.clearTimeout(toastTimer);
+    toastTimer = null;
+  }
+
+  saveToastTitle.textContent = title;
+  saveToastText.textContent = text;
+  saveToast.hidden = false;
+
+  toastTimer = window.setTimeout(() => {
+    hideSaveToast();
+    toastTimer = null;
+  }, 3500);
 }
 
 function formatList(listValue) {
@@ -270,7 +303,9 @@ stateForm.addEventListener('submit', async (event) => {
       throw new Error(result.error || 'Failed to update state');
     }
 
-    setMessage(`Saved successfully: ${result.state.name}`, 'success');
+    const savedName = result.state?.name || stateId;
+    setMessage(`Saved successfully: ${savedName}`, 'success');
+    showSaveToast('Changes saved', `${savedName} was updated successfully and is now ready on the public page.`);
     selectedStateId = stateId;
     await loadStates();
   } catch (error) {
@@ -290,6 +325,10 @@ logoutBtn.addEventListener('click', async () => {
     window.location.href = '/admin/login';
   }
 });
+
+if (saveToastClose) {
+  saveToastClose.addEventListener('click', hideSaveToast);
+}
 
 (async function init() {
   try {

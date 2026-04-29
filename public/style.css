@@ -2152,16 +2152,65 @@
 
   /* CUISINE */
   #cuisine {
-    padding: 110px 60px;
-    background:
-      radial-gradient(circle at 18% 20%, rgba(201,150,42,0.14), transparent 36%),
-      radial-gradient(circle at 85% 16%, rgba(232,98,26,0.1), transparent 34%),
-      linear-gradient(180deg, #f8eed8 0%, #f3e2c0 100%);
     position: relative;
     overflow: hidden;
+    padding: 110px 60px;
+    isolation: isolate;
+    background:
+      radial-gradient(circle at 14% 18%, rgba(232,98,26,0.16), transparent 28%),
+      radial-gradient(circle at 86% 14%, rgba(201,150,42,0.16), transparent 26%),
+      radial-gradient(circle at 50% 100%, rgba(240,192,64,0.08), transparent 32%),
+      linear-gradient(145deg, #160602 0%, #2b090c 48%, #110502 100%);
+  }
+  #cuisine::before,
+  #cuisine::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(18px);
+    opacity: 0.5;
+    z-index: 0;
+  }
+  #cuisine::before {
+    width: 280px;
+    height: 280px;
+    left: -120px;
+    top: 60px;
+    background: rgba(232,98,26,0.18);
+  }
+  #cuisine::after {
+    width: 360px;
+    height: 360px;
+    right: -150px;
+    bottom: -120px;
+    background: rgba(201,150,42,0.14);
+  }
+  #cuisine .section-label,
+  #cuisine .section-title,
+  #cuisine .section-intro {
+    position: relative;
+    z-index: 1;
+  }
+  #cuisine .section-label {
+    color: var(--gold-light);
+  }
+  #cuisine .section-title {
+    color: var(--ivory);
+    max-width: 920px;
+    margin-inline: auto;
+  }
+  #cuisine .section-divider {
+    background: linear-gradient(90deg, transparent, rgba(240,192,64,0.85), transparent);
+  }
+  #cuisine .section-intro {
+    color: rgba(245,230,200,0.74);
+    max-width: 820px;
   }
   .cuisine-wrap {
-    max-width: 1240px;
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
     margin: 0 auto;
   }
   .cuisine-head {
@@ -2171,103 +2220,109 @@
   }
   .cuisine-stage {
     display: grid;
-    grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+    grid-template-columns: minmax(300px, 0.84fr) minmax(0, 1.16fr);
     gap: 22px;
     align-items: start;
   }
   .cuisine-atlas,
   .cuisine-feature,
   .dish-card {
-    border: 1px solid rgba(107,15,26,0.14);
-    background: rgba(255,253,248,0.78);
-    box-shadow: 0 18px 38px rgba(107,15,26,0.08);
-    backdrop-filter: blur(8px);
+    border: 1px solid rgba(245,230,200,0.14);
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 22px 48px rgba(0,0,0,0.22);
+    backdrop-filter: blur(12px);
   }
   .cuisine-atlas {
     position: sticky;
     top: 96px;
-    padding: 28px;
-    border-radius: 28px;
+    padding: 30px;
+    border-radius: 30px;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(232,98,26,0.18), transparent 28%),
+      linear-gradient(180deg, rgba(26,10,0,0.92), rgba(61,0,7,0.9));
   }
   .cuisine-kicker {
     font-family: 'Cinzel', serif;
     font-size: 0.65rem;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--saffron);
+    color: var(--gold-light);
     margin-bottom: 12px;
   }
   .cuisine-atlas h3 {
     font-family: 'Yatra One', serif;
     font-size: clamp(1.6rem, 2.7vw, 2.3rem);
     line-height: 1.2;
-    color: var(--maroon);
+    color: var(--ivory);
     margin-bottom: 12px;
   }
   .cuisine-atlas p {
-    color: var(--text-mid);
+    color: rgba(245,230,200,0.74);
     line-height: 1.85;
     margin-bottom: 18px;
   }
   .cuisine-taste-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
     margin-bottom: 18px;
   }
   .cuisine-taste-grid button {
-    padding: 8px 10px;
-    border-radius: 999px;
-    background: rgba(107,15,26,0.06);
-    border: 1px solid rgba(107,15,26,0.14);
+    padding: 10px 12px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(245,230,200,0.12);
     text-align: center;
     font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--maroon);
+    color: var(--cream);
     cursor: pointer;
     transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, color 0.25s ease;
   }
   .cuisine-taste-grid button:hover,
   .cuisine-taste-grid button.active {
-    background: var(--maroon);
-    border-color: var(--maroon);
+    background: linear-gradient(135deg, rgba(232,98,26,0.22), rgba(240,192,64,0.14));
+    border-color: rgba(240,192,64,0.45);
     color: var(--gold-light);
     transform: translateY(-2px);
   }
   .cuisine-region-list {
     display: grid;
-    gap: 10px;
+    gap: 12px;
   }
   .cuisine-region-list div {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(107,15,26,0.12);
+    grid-template-columns: 88px 1fr;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(245,230,200,0.1);
   }
   .cuisine-region-list strong {
     font-family: 'Yatra One', serif;
-    color: var(--maroon);
+    color: var(--ivory);
     font-size: 0.98rem;
   }
   .cuisine-region-list span {
-    color: var(--text-mid);
+    color: rgba(245,230,200,0.72);
     font-size: 0.86rem;
     line-height: 1.6;
   }
   .cuisine-showcase {
     display: grid;
-    gap: 16px;
+    gap: 18px;
   }
   .cuisine-feature {
-    border-radius: 28px;
-    padding: 24px;
+    border-radius: 30px;
+    padding: 26px;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 16px;
     align-items: start;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(232,98,26,0.12), transparent 28%),
+      linear-gradient(180deg, rgba(26,10,0,0.9), rgba(61,0,7,0.92));
   }
   .cuisine-feature-icon {
     font-size: 2rem;
@@ -2277,59 +2332,64 @@
   .cuisine-feature h3 {
     font-family: 'Yatra One', serif;
     font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-    color: var(--maroon);
+    color: var(--ivory);
     line-height: 1.2;
     margin-bottom: 10px;
   }
   .cuisine-feature p {
-    color: var(--text-mid);
+    color: rgba(245,230,200,0.74);
     line-height: 1.8;
   }
   .dish-grid {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 14px;
+    gap: 16px;
   }
   .dish-card {
-    border-radius: 20px;
-    padding: 18px 16px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    padding: 20px 18px;
     grid-column: span 2;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    background:
+      radial-gradient(circle at top right, rgba(240,192,64,0.12), transparent 24%),
+      linear-gradient(180deg, rgba(255,253,248,0.06), rgba(255,255,255,0.025));
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
   }
   .dish-card.is-muted {
-    opacity: 0.42;
+    opacity: 0.34;
     transform: scale(0.98);
     filter: saturate(0.65);
   }
   .dish-card.is-highlighted {
-    border-color: rgba(107,15,26,0.34);
-    box-shadow: 0 18px 36px rgba(107,15,26,0.16);
+    border-color: rgba(240,192,64,0.36);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.22);
   }
   .dish-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(107,15,26,0.24);
-    box-shadow: 0 14px 32px rgba(107,15,26,0.12);
+    border-color: rgba(240,192,64,0.3);
+    box-shadow: 0 16px 34px rgba(0,0,0,0.18);
   }
   .dish-wide {
     grid-column: span 3;
   }
-  .dish-icon { font-size: 1.9rem; margin-bottom: 10px; display: block; }
+  .dish-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
   .dish-name {
     font-family: 'Yatra One', serif;
     font-size: 1.1rem;
-    color: var(--maroon);
+    color: var(--ivory);
     margin-bottom: 4px;
   }
   .dish-origin {
     font-family: 'Cinzel', serif;
-    font-size: 0.58rem;
+    font-size: 0.6rem;
     letter-spacing: 2px;
-    color: var(--saffron);
+    color: var(--gold-light);
     text-transform: uppercase;
     margin-bottom: 8px;
   }
   .dish-desc {
-    color: var(--text-mid);
+    color: rgba(245,230,200,0.72);
     font-size: 0.83rem;
     line-height: 1.7;
   }
@@ -2340,6 +2400,9 @@
     }
     .cuisine-atlas {
       position: static;
+    }
+    .cuisine-taste-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     .dish-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2368,6 +2431,10 @@
     .cuisine-taste-grid,
     .dish-grid {
       grid-template-columns: 1fr;
+    }
+    .cuisine-region-list div {
+      grid-template-columns: 1fr;
+      gap: 6px;
     }
   }
 
@@ -2552,7 +2619,7 @@
   }
   .states-grid {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 14px;
     max-width: 1180px;
     margin: 0 auto;
@@ -2576,14 +2643,7 @@
     cursor: pointer;
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
     backdrop-filter: blur(10px);
-    grid-column: span 3;
-  }
-  .state-tile:nth-child(7n + 1),
-  .state-tile:nth-child(9n + 5) {
-    grid-column: span 4;
-  }
-  .state-tile:nth-child(11n + 3) {
-    grid-column: span 2;
+    grid-column: auto;
   }
   .state-tile::after {
     content: '';
@@ -2640,13 +2700,10 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     .states-grid {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-    .state-tile,
-    .state-tile:nth-child(7n + 1),
-    .state-tile:nth-child(9n + 5),
-    .state-tile:nth-child(11n + 3) {
-      grid-column: span 2;
+    .state-tile {
+      grid-column: auto;
     }
   }
 
@@ -2671,11 +2728,8 @@
     .states-grid {
       grid-template-columns: 1fr;
     }
-    .state-tile,
-    .state-tile:nth-child(7n + 1),
-    .state-tile:nth-child(9n + 5),
-    .state-tile:nth-child(11n + 3) {
-      grid-column: span 1;
+    .state-tile {
+      grid-column: auto;
     }
   }
 

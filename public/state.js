@@ -13,7 +13,15 @@ function escapeHtml(value) {
 }
 
 function renderList(items) {
+  if (!items || items.length === 0) {
+    return '<p class="empty-copy">Details coming soon.</p>';
+  }
+
   return `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+}
+
+function renderEmptyBlock(message) {
+  return `<p class="empty-copy">${escapeHtml(message)}</p>`;
 }
 
 function renderStatePage(state) {
@@ -96,12 +104,14 @@ function renderStatePage(state) {
       <h2 class="section-title">Must Visit Places</h2>
       <p class="section-subtitle">Iconic destinations you should include in your itinerary.</p>
       <div class="list-card">
-        ${(state.mustVisit || []).map((place) => `
+        ${(state.mustVisit || []).length > 0
+          ? (state.mustVisit || []).map((place) => `
           <div class="visit-item">
             <span class="visit-name">${escapeHtml(place.name)}</span>
             <p class="visit-desc">${escapeHtml(place.description)}</p>
           </div>
-        `).join('')}
+        `).join('')
+          : renderEmptyBlock('Travel highlights for this state will be added soon.')}
       </div>
     </section>
 
@@ -109,7 +119,8 @@ function renderStatePage(state) {
       <h2 class="section-title">Major Festivals</h2>
       <p class="section-subtitle">Celebrations that define the rhythm of local life.</p>
       <div class="list-card">
-        ${(state.majorFestivals || []).map((festival) => `
+        ${(state.majorFestivals || []).length > 0
+          ? (state.majorFestivals || []).map((festival) => `
           <div class="festival-row">
             <div class="festival-month">${escapeHtml(festival.month || 'Any time')}</div>
             <div>
@@ -117,7 +128,8 @@ function renderStatePage(state) {
               <p class="festival-note">${escapeHtml(festival.note)}</p>
             </div>
           </div>
-        `).join('')}
+        `).join('')
+          : renderEmptyBlock('Festival details will appear here once they are available.')}
       </div>
     </section>
 
