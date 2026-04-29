@@ -16,7 +16,17 @@
 <body class="admin-bg">
   <header class="topbar">
     <div class="topbar-left">
-      <p class="eyebrow">Admin Console</p>
+      <a class="topbar-brand" href="/" aria-label="Go to Bharat home">
+        <span class="topbar-mark">भ</span>
+        <span>
+          <strong>Bharat Dashboard</strong>
+          <small>State content management</small>
+        </span>
+      </a>
+      <div class="topbar-meta">
+        <p class="eyebrow">Admin Console</p>
+        <span class="topbar-status">Live content editor</span>
+      </div>
       <h1>State Details Management</h1>
       <p class="subline">A focused editing surface for all public state profile content.</p>
     </div>
@@ -98,6 +108,15 @@
       <p id="formMessage" class="message" aria-live="polite"></p>
     </section>
   </main>
+
+  <div id="saveToast" class="save-toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <div class="save-toast-icon" aria-hidden="true">✓</div>
+    <div class="save-toast-body">
+      <strong id="saveToastTitle">Changes saved</strong>
+      <span id="saveToastText">Your update is ready on the public page.</span>
+    </div>
+    <button id="saveToastClose" type="button" class="save-toast-close" aria-label="Dismiss notification">&times;</button>
+  </div>
 
   <script src="/admin.js"></script>
 </body>
